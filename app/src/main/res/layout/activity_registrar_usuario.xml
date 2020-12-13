@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.com.cmacica.flujocredito.ViewModel.CarteraAnalista.RegistrarUsuarioActivity">
+
+    <include
+        layout="@layout/toolbar"></include>
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/espacio_norma_1">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/map_icon"></ImageView>
+
+
+            <RadioGroup
+                android:id="@+id/radiogroupOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                android:layout_marginTop="@dimen/espacio_norma_1"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="3">
+
+                <RadioButton
+                    android:id="@+id/radiobuttonDNI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:checked="true"
+                    android:text="DNI" />
+
+                <RadioButton
+                    android:id="@+id/radiobuttonName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:layout_marginRight="16dp"
+                    android:text="@string/registrar_usuario_action_nombre_apellido" />
+
+
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinputlayoutDNI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espacio_norma_1"
+                app:layout_constraintTop_toBottomOf="@id/radiogroupOptions">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textinputedittextDNI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/registrar_usuario_dni_hint"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:imeOptions="actionDone"></android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonSearchCustomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayoutDNI"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingStart="@dimen/espacio_norma_1"
+                android:paddingEnd="@dimen/espacio_norma_1"
+                android:layout_marginTop="@dimen/espacio_norma_2"
+                android:text="@string/registrar_usuario_action_buscar_cliente"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_background_two"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"></Button>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinputlayoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/buttonSearchCustomer"
+                android:layout_marginTop="@dimen/espacio_norma_1">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textinputedittextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/registrar_usuario_nombre_hint"
+                    android:drawableEnd="@drawable/ic_format_size"
+                    android:drawableTint="@android:color/black"
+                    android:inputType="textPersonName"
+                    android:maxLength="200"></android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinputlayoutPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayoutName">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textinputedittextPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/registrar_usuario_telefono_hint"
+                    android:drawableEnd="@drawable/ic_smartphone"
+                    android:drawableTint="@android:color/black"
+                    android:inputType="phone"
+                    android:maxLength="9"
+                    android:imeOptions="actionDone"></android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <!--
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinputlayoutReference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayoutPhone">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/textinputedittextReference"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/registrar_usuario_referencia_hint"
+                    android:drawableEnd="@drawable/ic_location"
+                    android:drawableTint="@android:color/black"
+                    android:inputType="textPostalAddress"
+                    android:maxLength="500"></android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textTipoDomicilio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayoutReference"
+                android:layout_marginTop="@dimen/espacio_norma_2"
+                android:layout_marginStart="4dp"
+                android:text="@string/registrar_usuario_tipo_domicilio"></TextView>
+
+            <Spinner
+                android:id="@+id/spinnerDomicilieType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textTipoDomicilio"
+                android:layout_marginTop="@dimen/espacio_norma_2"></Spinner>
+
+            -->
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textinputlayoutPhone"
+                android:layout_marginTop="48dp"
+                android:text="@string/registrar_usuario_action_guardar"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_background_two"
+                android:enabled="false"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"></Button>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+
+
+

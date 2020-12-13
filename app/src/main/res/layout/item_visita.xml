@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/cardviewVisita"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/espacio_norma_2"
+    app:cardElevation="4dp"
+    android:layout_margin="@dimen/espacio_norma_1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.015"></android.support.constraint.Guideline>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidelineTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.30"></android.support.constraint.Guideline>
+
+        <View
+            android:id="@+id/viewIndicatorResult"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/ColorEditTextPopUp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineOne"></View>
+
+
+        <TextView
+            android:id="@+id/textVisitDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelineOne"
+            app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
+            android:paddingTop="@dimen/espacio_norma_2"
+            android:paddingBottom="@dimen/espacio_norma_2"
+            android:layout_margin="@dimen/espacio_norma_2"
+            android:text="04 \nFebrero"
+            android:textAlignment="center"
+            android:background="@color/ColorEditTextPopUp"
+            style="@style/Subtitle2"></TextView>
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelineTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/espacio_norma_1"
+            android:text="Cristian J. Chacaltana Fajardo"
+            style="@style/Subtitle2"></TextView>
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textName"
+            app:layout_constraintStart_toStartOf="@id/guidelineTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="943928029"></TextView>
+
+        <TextView
+            android:id="@+id/textDNI"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textPhone"
+            app:layout_constraintStart_toStartOf="@id/guidelineTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="71458912"></TextView>
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textDNI"
+            app:layout_constraintStart_toStartOf="@id/guidelineTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingBottom="@dimen/espacio_norma_1"
+            android:layout_marginBottom="@dimen/espacio_norma_1"
+            android:text="CC.HH. La Angostura R-26 III ETAPA"></TextView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

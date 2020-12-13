@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/ic_store"
+            android:title="@string/item_inicio" />
+
+        <item
+            android:id="@+id/nav_calendario"
+            android:icon="@drawable/ic_file_document"
+            android:title="@string/item_Solicitud" />
+        <item
+            android:id="@+id/nav_SolCred"
+            android:icon="@drawable/ic_file_document"
+            android:title="@string/item_ListSolCred"/>
+
+        <item
+            android:id="@+id/nav_GestCob"
+            android:icon="@drawable/ic_file_document"
+            android:title="@string/item_ListGesCob"/>
+
+        <item
+
+            android:id="@+id/nav_RegistroPersona"
+            android:icon="@drawable/ic_file_document"
+            android:title="@string/item_RegistroPersona" />
+
+
+        <item
+
+            android:id="@+id/nav_AgendaComercial"
+            android:icon="@drawable/ic_file_document"
+            android:title="@string/item_AgenciaComercial" />
+
+        <item
+
+            android:id="@+id/expedienteCredito"
+            android:icon="@drawable/ic_file_document"
+            android:title="Expediente Credito" />
+
+
+
+
+
+
+        <!-- Agenda Comercial -->
+        <item
+            android:id="@+id/agendaComercial"
+            android:title="@string/grupo_accion_agenda">
+
+            <menu>
+                <item
+                    android:id="@+id/itemAgendaComercial"
+                    android:title="@string/accion_accion_agenda_comercial"
+                    android:icon="@drawable/ic_file_document"></item>
+                <item
+                    android:id="@+id/itemReferido"
+                    android:title="@string/accion_accion_referido"
+                    android:icon="@drawable/ic_file_document"></item>
+            </menu>
+
+        </item>
+
+        <!--   <item
+               android:id="@+id/nav_Recuperaciones"
+               android:icon="@drawable/ic_file_document"
+               android:title="@string/item_Recuperaciones" />-->
+
+        <item
+            android:id="@+id/itemFigitacion"
+            android:title="@string/item_digitacion">
+            <menu>
+                <item
+                    android:id="@+id/navFuenteIngreso"
+                    android:icon="@drawable/ic_file_document"
+                    android:title="@string/item_FteIngresoDep"
+                    />
+            </menu>
+        </item>
+
+
+        <!-- Geo Referenciación
+        <item
+            android:id="@+id/itemGeoRef"
+            android:title="@string/item_georef">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/subitemGeoRef"
+                        android:icon="@drawable/ic_file_document"
+                        android:title="@string/subitem_georef" />
+                    <item
+                        android:id="@+id/subitemUpDown"
+                        android:icon="@drawable/ic_file_document"
+                        android:title="@string/subitem_updown" />
+                </group>
+            </menu>
+        </item>
+        -->
+
+        <item
+            android:id="@+id/carteraAnalista"
+            android:title="@string/grupo_accion_cartera">
+
+            <menu>
+                <item
+                    android:id="@+id/itemCartera"
+                    android:icon="@drawable/ic_file_document"
+                    android:title="@string/accion_accion_cartera_analista"></item>
+            </menu>
+
+        </item>
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/item_Configuracion">
+            <menu>
+                <item
+                    android:id="@+id/item_Ajustes"
+                    android:icon="@android:drawable/ic_menu_manage"
+                    android:title="@string/item_Ajustes" />
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/log_out_item" />
+            </menu>
+        </item>
+
+
+    </group>
+
+</menu>

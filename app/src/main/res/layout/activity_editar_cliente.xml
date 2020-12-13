@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.com.cmacica.flujocredito.ViewModel.CarteraAnalista.EditarClienteActivity">
+
+
+    <include
+        layout="@layout/toolbar"></include>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/espacio_norma_1"></android.support.constraint.Guideline>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/espacio_norma_1"></android.support.constraint.Guideline>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textinputlayoutName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/textinputedittextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editar_cliente_nombre_hint"
+            android:drawableEnd="@drawable/ic_format_size"
+            android:drawableTint="@android:color/black"
+            android:inputType="textPersonName"
+            android:maxLines="200"></android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textinputlayoutDNI"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textinputlayoutName"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
+        android:visibility="gone">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/textinputedittextDNI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editar_cliente_dni_hint"
+            android:drawableEnd="@drawable/ic_format_size"
+            android:drawableTint="@android:color/black"
+            android:inputType="number"
+            android:maxLength="8"></android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textinputlayoutPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textinputlayoutDNI"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/textinputedittextPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/editar_cliente_telefono_hint"
+            android:drawableEnd="@drawable/ic_smartphone"
+            android:drawableTint="@android:color/black"
+            android:inputType="phone"
+            android:maxLength="9"></android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/buttonEditClient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
+        android:layout_marginBottom="@dimen/espacio_norma_1"
+        android:text="@string/editar_cliente_action_guardar"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background_two"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"></Button>
+
+</android.support.constraint.ConstraintLayout>

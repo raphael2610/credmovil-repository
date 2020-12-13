@@ -1,0 +1,455 @@
+<resources>
+    <string name="app_name">Credi Móvil</string>
+    <string name="action_settings">Configuraciones</string>
+
+    <string name="item_inicio">Calif. SF.</string>
+    <string name="item_Solicitud">Calendario</string>
+    <string name="item_digitacion">Digitación</string>
+    <string name="item_ListSolCred">Solicitud</string>
+    <string name="item_ListGesCob">Cobranza</string>
+    <string name="item_FteIngresoDep">Fte. Ingreso</string>
+    <string name="item_RegistroPersona">Registro Persona</string>
+    <string name="item_AgenciaComercial">Agenda Comercial</string>
+    <string name="item_Recuperaciones">Recuperaciones</string>
+    <string name="item_Configuracion">Configuración</string>
+    <string name="item_Ajustes">Ajustes</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+
+    <!-- Geo Referenciación -->
+    <string name="item_georef">Geo Referenciación</string>
+    <string name="subitem_georef">Geo Referenciar</string>
+    <string name="subitem_updown">Sincronizar</string>
+
+    <!-- Desbloqueo y reseteo de clave -->
+    <string name="text_resetpass">Resetear contraseña</string>
+    <string name="text_unlockacc">Desbloquear cuenta</string>
+
+    <string name="enter_name">Nombre</string>
+    <string name="enter_reference">Referencia</string>
+    <string name="enter_doi">Documento de identidad</string>
+    <string name="validate_save">    BUSCAR CLIENTE    </string>
+    <string name="enter_phone">Teléfono</string>
+    <string name="type">Tipo</string>
+    <string name="latitude">Latitud:</string>
+    <string name="longitude">Longitud:</string>
+    <string name="save_location">GUARDAR UBICACIÓN</string>
+    <string name="delete_location">ELIMINAR UBICACIÓN</string>
+    <string name="register_location">Registrar Ubicación</string>
+    <string name="download_clients">Obtener clientes</string>
+    <string name="load_clients">Guardar clientes</string>
+    <string name="load">Guardar</string>
+    <string name="dowload">Obtener</string>
+    <string name="radio">Radio</string>
+    <string name="enter_radio">Utiliza esta opción para obtener los clientes que se ubiquen dentro del radio de su posición actual.</string>
+    <string name="enter_radio2">El radio ingresado debe estar expresado en metros.</string>
+    <string name="load_clients_hint">Utiliza esta opción para enviar los clientes que hayas registrado, a la base de datos de la CMAC ICA.</string>
+
+
+    <!-- TODO: elementos de la fuente de ingreso -->
+
+    <string name="tap_FteDatosCliente">Datos Cliente</string>
+    <string name="tap_FteComentario">Comentarios</string>
+    <string name="tap_FteIgrEgr">Ingr y Egre</string>
+    <string name="tap_FteIgrBalance">Balance</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="etiqueta_info_usuario">DATOS INTERNOS DEL CLIENTE</string>
+    <string name="etiqueta_DetCalif_usuario">CALIFICACIÓN 6 ÚLTIMOS MESES</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_password">Contraseña </string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_user_id">Usuario</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Tooltips acciones toolbar -->
+    <string name="accion_sync">Sincronizar</string>
+    <string name="accion_eliminar">Eliminar</string>
+    <string name="accion_guardar">Guardar</string>
+
+    <!-- Diálogos -->
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancelar</string>
+
+    <!-- Cuenta Sync Adapter -->
+    <string name="tipo_cuenta">pe.com.cmacica.flujocredito.cuenta</string>
+
+    <!-- Autoridad del provider -->
+    <string name="autoridad_provider">pe.com.cmacica.flujocredito</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <string name="search_hint">Nombre...</string>
+    <string name="title_activity_actividad_hist_plan_pago">Historial de Pago</string>
+    <string name="title_activity_actividad_mant_sol_cred">ActividadMantSolCred</string>
+    <string name="RegistroSolicitud">Nueva Solicitud</string>
+    <string name="RegistroGestion">Registrar Gestión</string>
+    <string name="title_activity_actividad_gestion_cobranza">ActividadGestionCobranza</string>
+    <string name="title_activity_actividad_gestion_cobranza1">ActividadGestionCobranza1</string>
+    <string name="Programación">Programación</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_actividad__visor__sbs">Actividad_Visor_Sbs</string>
+    <string name="title_activity_mostrar_latitud_longitud">MostrarLatitudLongitud</string>
+    <string name="title_activity_actividad_programacion_recuperaciones">
+        ActividadProgramacionRecuperaciones
+    </string>
+
+
+    <string name="grupo_accion_cartera">Geo Referenciación</string>
+    <string name="grupo_accion_agenda">Agenda</string>
+    <string name="accion_accion_cartera_analista">Geo Referenciar</string>
+    <string name="accion_accion_agenda_comercial">Agenda Comercial</string>
+    <string name="accion_accion_referido">Referido</string>
+
+    <string name="cartera_analista_title">Cartera de Analista</string>
+    <string name="cartera_analista_date">Fecha: %s</string>
+    <string name="cartera_analista_action_get_customers">Obtener Clientes</string>
+    <string name="cartera_analista_msg_get_customers">Utiliza esta opción para obtener los clientes que se ubiquen dentro del radio de su posición actual.</string>
+    <string name="cartera_analista_search_name_dni_hint">Buscar por Nombre o D.N.I.</string>
+    <string name="cartera_analista_action_sync_up">Sincronizar</string>
+    <string name="cartera_analista_action_location">Localización</string>
+    <string name="cartera_analista_action_add">Agregar</string>
+    <string name="cartera_analista_action_filter">Filtro</string>
+    <string name="cartera_analista_error_not_customers">¡No se encontraron clientes cercanos! Intenta un radio mayor.</string>
+    <string name="cartera_analista_msg_success_customers">¡Se realizó la descarga de los clientes!</string>
+    <string name="cartera_analista_error_save_customers">¡Error! No se guardo correctamente los clientes.</string>
+    <string name="cartera_analista_msg_esperar">Espere por favor</string>
+    <string name="cartera_analista_msg_get_customer">Obteniendo Clientes del servidor.</string>
+    <string name="cartera_analista_msg_debe_obtener_clientes">Debe Obtener primero a los clientes.</string>
+    <string name="cartera_analista_msg_no_existe_cliente">¡No existe clientes para sincronizar!</string>
+    <string name="cartera_analista_msg_sincronizando_clientes">Sincronizando Clientes</string>
+    <string name="cartera_analista_error_get_date_download_customer">No se pudo obtener la fecha de descarga de los clientes.</string>
+    <string name="cartera_analista_error_sincronizar_clientes">Error al Sincronizar a los clientes</string>
+
+    <string name="item_cliente_document">Documento: %s</string>
+    <string name="item_cliente_phone">Teléfono: %s</string>
+    <string name="item_cliente_geoposicionado">GeoPosicionado: %s</string>
+
+    <string name="filtro_busqueda_title">Filtro de Búsqueda</string>
+    <string name="filtro_busqueda_radio">Radio</string>
+    <string name="filtro_busqueda_datos_locales">Datos Locales</string>
+    <string name="filtro_busqueda_action_actual_analista">actual \nanalista</string>
+    <string name="filtro_busqueda_action_otras_carteras">Otras \nCarteras</string>
+    <string name="filtro_busqueda_action_todos">Todos</string>
+    <string name="filtro_busqueda_error_lat_long">No se ha podido obtener la Coordenadas Actual</string>
+    <string name="filtro_busqueda_msg_esperar">Espere por favor</string>
+    <string name="filtro_busqueda_msg_get_customer">Obteniendo Clientes del servidor.</string>
+    <string name="filtro_busqueda_msg_filtro_aplicado">Filtro Aplicado exitosamente</string>
+    <string name="filtro_busqueda_error_eliminacion_clientes">Error en la eliminación de los clientes</string>
+    <string name="filtro_busqueda_msg_existe_clientes_editado_insertado">No se puede aplicar el filtro, existe clientes insertados o actualizados.</string>
+    <string name="filtro_busqueda_subtitle_geoposicion">GeoPosición</string>
+    <string name="filtro_busqueda_action_geoposicionado">GeoPosicionado</string>
+    <string name="filtro_busqueda_action_no_geoposicionado">No \nGeoPosicionado</string>
+    <string name="filtro_busqueda_action_limpiar_filtros">Limpiar</string>
+    <string name="filtro_busqueda_action_aplicar_filtros">Aplicar</string>
+
+    <string name="detalle_usuario_title">Detalle Usuario</string>
+    <string name="detalle_usuario_datos_personales">Datos Personales</string>
+    <string name="detalle_usuario_nombre">Nombre</string>
+    <string name="detalle_usuario_documento_identidad">Documento de Identidad</string>
+    <string name="detalle_usuario_telefono">Teléfono</string>
+    <string name="detalle_usuario_creditos">Créditos</string>
+    <string name="detalle_usuario_numero">Número</string>
+    <string name="detalle_usuario_estado">Estado</string>
+    <string name="detalle_usuario_mora">Mora</string>
+    <string name="detalle_usuario_monto">Monto</string>
+    <string name="detalle_usuario_georeferenciado">Georeferenciado</string>
+    <string name="detalle_usuario_action_georeferencias">Georeferenciar</string>
+    <string name="detalle_usuario_action_editar">Editar</string>
+    <string name="detalle_usuario_error_title">Créditos no Encontrados</string>
+    <string name="detalle_usuario_error_cargar_creditos">Error al cargar los créditos</string>
+    <string name="detalle_usuario_msg_creditos_no_encontrados">El usuario no registra créditos.</string>
+
+    <string name="georeferenciar_title">Georreferenciación</string>
+    <string name="georeferenciar_direccion_domicilio">Dirección Domicilio</string>
+    <string name="georeferenciar_referencia">Referencia</string>
+    <string name="georeferenciar_latitud">Latitud</string>
+    <string name="georeferenciar_longitud">Longitud</string>
+    <string name="georeferenciar_action_visualizar">Visualizar</string>
+    <string name="georeferenciar_action_editar">Editar</string>
+    <string name="georeferenciar_error_title">Direcciones no Encontradas</string>
+    <string name="georeferenciar_error_content">Agrege una dirección a este usuario.</string>
+    <string name="georeferenciar_dialog_title">Alerta</string>
+    <string name="georeferenciar_dialog_content">Solo se puede visualizar las direcciones, ya que el cliente es de otra cartera.</string>
+    <string name="georeferenciar_dialog_action_aceptar">Aceptar</string>
+
+    <string name="anade_direccion_title">Añade Dirección</string>
+    <string name="anade_direccion_latitud">Latitud %s</string>
+    <string name="anade_direccion_longitud">Longitud %s</string>
+    <string name="anade_direccion_detalles_direccion">Detalles de Dirección</string>
+    <string name="anade_direccion_detalles_direccion_hint">Especifica una referencia</string>
+    <string name="anade_direccion_action_guardar_direccion">Guardar Dirección</string>
+    <string name="anade_direccion_tipo_direccion">Tipo de Dirección</string>
+    <string name="anade_direccion_msg_name_customer">Ingrese el nombre del cliente</string>
+    <string name="anade_direccion_msg_phone_customer">Ingrese el teléfono del cliente</string>
+    <string name="anade_direccion_msg_detail_address">Ingrese el detalle de la dirección</string>
+    <string name="anade_direccion_msg_dni">Ingrese el D.N.I. del cliente</string>
+    <string name="anade_direccion_msg_type_address">Seleccione un tipo de domicilio</string>
+    <string name="anade_direccion_error_save_address">Error al Guardar Dirección</string>
+    <string name="anade_direccion_error_lat_long">No se ha podido obtener la Coordenadas Actual</string>
+    <string name="anade_direccion_msg_insertado_exitoso">Dirección almacenada correctamente.</string>
+    <string name="anade_direccion_error_insertado_existente">El tipo de dirección ya esta almacenada.</string>
+
+    <string name="mapa_georeferenciacion_title">Mapa de Georreferenciación</string>
+
+    <string name="registrar_usuario_title">Registrar Usuario</string>
+    <string name="registrar_usuario_doi">D.N.I.</string>
+    <string name="registrar_usuario_dni_hint">Documento Identidad</string>
+    <string name="registrar_usuario_nombre_apellido_hint">Nombre y Apellido</string>
+    <string name="registrar_usuario_action_nombre_apellido">Nombre y Apellido</string>
+    <string name="registrar_usuario_action_buscar_cliente">Buscar Cliente</string>
+    <string name="registrar_usuario_nombre_hint">Nombre</string>
+    <string name="registrar_usuario_telefono_hint">Teléfono</string>
+    <string name="registrar_usuario_referencia_hint">Referencia</string>
+    <string name="registrar_usuario_tipo_domicilio">Tipo Domicilio</string>
+    <string name="registrar_usuario_action_guardar">Guardar</string>
+    <string name="registrar_usuario_dialog_title">Usuario Registrado</string>
+    <string name="registrar_usuario_dialog_content">Usuario en nuestra base de datos CMAC ICA.</string>
+    <string name="registrar_usuario_dialog_action_aceptar">Aceptar</string>
+    <string name="registrar_usuario_msg_cliente_no_encontrado">Cliente no Encontrado, Proceda a Registrarlo</string>
+    <string name="registrar_usuario_error_registro">Error al Registrar al Cliente</string>
+    <string name="registrar_usuario_msg_registro_exitoso">Registro Exitoso</string>
+    <string name="registrar_usuario_msg_esperar">Espere por favor</string>
+    <string name="registrar_usuario_msg_validacion_campos">Validando la información ingresada</string>
+    <string name="registrar_usuario_msg_buscando_clientes_locales">Buscando clientes locales</string>
+    <string name="registrar_usuario_msg_buscando_clientes_db_cmacica">Buscando clientes en CMACICA</string>
+    <string name="registrar_usuario_msg_insertando_usuario_cmaica">Insertando Usuario encontrado de CMAICA.</string>
+
+
+    <string name="editar_cliente_title">Editar Cliente</string>
+    <string name="editar_cliente_nombre_hint">Nombre</string>
+    <string name="editar_cliente_dni_hint">Documento Identidad</string>
+    <string name="editar_cliente_telefono_hint">Teléfono</string>
+    <string name="editar_cliente_action_guardar">Guardar</string>
+    <string name="editar_cliente_msg_nombre">Ingrese el nombre del cliente</string>
+    <string name="editar_cliente_msg_dni">Ingrese el D.N.I. del cliente</string>
+    <string name="editar_cliente_msg_telefono">Ingrese el teléfono del cliente</string>
+    <string name="editar_cliente_msg_actualizacion_exitosa">Actualización Correcta</string>
+    <string name="editar_cliente_error_actualizacion">Error al actualizar el cliente</string>
+
+    <string name="lista_analista_title">Lista Analista</string>
+    <string name="lista_analista_hint">Nombre del Analista</string>
+    <string name="lista_analista_fecha">Fecha: %s</string>
+
+    <string name="item_analista_nombre">Nombre</string>
+    <string name="item_analista_analista_credito">Analista Crédito</string>
+
+    <string name="georeferencias_title">Georeferencias</string>
+
+
+    <string name="agenda_comercial_title">Agenda Comercial</string>
+    <string name="agenda_comercial_msg_pendientes_visita_title">Pendientes de Visita</string>
+    <string name="agenda_comercial_msg_pendientes_visita_content">No tiene visitas pendientes programadas.</string>
+    <string name="agenda_comercial_documento_hint">Documento</string>
+    <string name="agenda_comercial_edad_hint">Edad</string>
+    <string name="agenda_comercial_sexo_hint">Sexo</string>
+    <string name="agenda_comercial_nombres_hint">Nombres</string>
+    <string name="agenda_comercial_agencia_hint">Agencia</string>
+    <string name="agenda_comercial_telefono_hint">Teléfonos</string>
+    <string name="agenda_comercial_direccion_hint">Dirección</string>
+    <string name="agenda_comercial_msg_esperar">Espere por favor</string>
+    <string name="agenda_comercial_msg_obteniendo_visitas">Obteniendo Visitas del Servidor.</string>
+    <string name="agenda_comercial_msg_descarga_visita">¡Se realizó la descarga de las visitas!</string>
+    <string name="agenda_comercial_error_guardar_visitas">¡Error! No se guardo correctamente las visitas.</string>
+    <string name="agenda_comercial_buscar_nombre_hint">Buscar por el nombre</string>
+    <string name="agenda_comercial_action_sincronizar">Sincronizar Resultados</string>
+    <string name="agenda_comercial_action_obtener">Obtener Visitas</string>
+    <string name="agenda_comercial_error_visit_not_found">No se encontraron visitas programadas.</string>
+    <string name="agenda_comercial_error_obtener_resultados">No se obtuvieron los resultados.</string>
+
+
+    <string name="agenda_comercial_msg_obtener_productos_ofrecidos">Obteniendo los Productos Ofrecidos</string>
+    <string name="agenda_comercial_error_obtener_productos_ofrecidos">No se obtuvieron los productos ofrecidos</string>
+
+    <string name="agenda_comercial_error_guardar_productos_ofrecidos">¡Error! No se guardo correctamente las productos ofrecidos.</string>
+
+    <string name="agenda_comercial_msg_obtener_tipos_contacto">Obteniendo los Tipos de Contacto</string>
+    <string name="agenda_comercial_error_obtener_tipos_contacto">No se obtuvieron los tipos de contacto</string>
+    <string name="agenda_comercial_error_guardar_tipos_contacto">¡Error! No se guardo correctamente los tipos de contacto.</string>
+
+    <string name="agenda_comercial_msg_obtener_ofertas_cliente">obteniendo las ofertas de los clientes</string>
+    <string name="agenda_comercial_error_obtener_ofertas_cliente">No se obtuvieron las ofertas de los clientes</string>
+    <string name="agenda_comercial_error_guardar_ofertas_cliente">¡Error! No se guardo correctamente las ofertas clientes</string>
+
+    <string name="agenda_comercial_error_obtener_id_user">¡Error! al obtener el identificador del usuario</string>
+    <string name="agenda_comercial_error_no_visitas">No se encontraron visitas programadas</string>
+
+    <string name="agenda_comercial_dialog_title">Registro de Resultado</string>
+    <string name="agenda_comercial_dialog_content">Esta visita ya tiene un resultado registrado localmente</string>
+    <string name="agenda_comercial_dialog_action_ok">Ok</string>
+    <string name="agenda_comercial_dialog_action_no">No</string>
+
+
+    <string name="registro_resultado_title">Registro Resultado</string>
+
+    <string name="cliente_title">Cliente</string>
+
+
+    <string name="resultado_title">Resultado</string>
+    <string name="resultado_ofreciste">¿Qué ofreciste?</string>
+    <string name="resultado_tipo_contacto">Tipo Contacto</string>
+    <string name="resultado_resulto">Resultado</string>
+    <string name="resultado_oferta">Oferta</string>
+    <string name="resultado_saldo_capital">Saldo Capital</string>
+    <string name="resultado_nueva_fecha_visita">Programar Nueva Fecha Visita</string>
+    <string name="resultado_msg_esperar">Espere por favor</string>
+    <string name="resultado_msg_obteniendo_resultado_visita">Obteniendo resultados de la visita</string>
+    <string name="resultado_msg_descarga_resultados_visitas">¡Se realizó la descarga de los resultados de visitas!</string>
+    <string name="resultado_error_guardar_resultados_visita">¡Error! No se guardo correctamente los resultados de la visita.</string>
+    <string name="resultado_error_monto">Debe ingresar un monto válido</string>
+    <string name="resultado_error_fecha">Debe ingresar una fecha</string>
+    <string name="resultado_error_resultado">Seleccione un resultado</string>
+    <string name="resultado_error_ofreciste">Seleccione una producto</string>
+    <string name="resultado_error_tipo_contacto">Seleccione un tipo de contacto</string>
+    <string name="resultado_msg_insertar_resultado_visita_exitoso">Inserción de visita local exitoso</string>
+    <string name="resultado_error_insertar_resultado_visita">¡Error! Insertar el resultado local</string>
+    <string name="resultado_error_obtener_id_cliente">¡Error! No se obtuvo el identificador del cliente</string>
+    <string name="resultado_error_obtener_id_usuario">¡Error! No se obtuvo el identificador del usuario</string>
+    <string name="resultado_error_location">¡Error! No se obtuvo la localización</string>
+
+    <string name="item_visita_confirmado">Confirmado</string>
+    <string name="item_visita_pendiente">Pendiente</string>
+
+    <string name="cliente_msg_dni">Ingresar Documento Válido</string>
+    <string name="cliente_msg_edad">Ingresar Edad Válida</string>
+    <string name="cliente_msg_sexo">Ingresar Sexo</string>
+    <string name="cliente_msg_nombre">Ingrese Nombre</string>
+    <string name="cliente_msg_telefono">Ingrese Teléfonos Válido</string>
+    <string name="cliente_msg_agencia">Ingresa Agencia</string>
+    <string name="cliente_msg_direccion">Ingresar Dirección Válida</string>
+    <string name="cliente_msg_actualizacion">Actualización de Datos Satisfactorio.</string>
+    <string name="cliente_error_actualizacion">Error al actualizar la información.</string>
+    <string name="cliente_action_ver_ofertas">Ver Ofertas</string>
+    <string name="cliente_action_actualizar_datos">Actualizar Datos</string>
+
+
+    <string name="busqueda_nombre_apellido_title">Busqueda por Nombre y Apellido</string>
+    <string name="busqueda_nombre_apellido_nombre_hint">Nombres</string>
+    <string name="busqueda_nombre_apellido_apellido_paterno_hint">Apellido Paterno</string>
+    <string name="busqueda_nombre_apellido_apellido_materno_hint">Apellido Materno</string>
+    <string name="busqueda_nombre_apellido_action_buscar">Buscar</string>
+    <string name="busqueda_nombre_apellido_dni_hint">D.N.I.</string>
+    <string name="busqueda_nombre_apellido_telefono_hint">Teléfono</string>
+    <string name="busqueda_nombre_apellido_action_guardar">Guardar</string>
+    <string name="busqueda_nombre_apellido_msg_apellido_paterno">Ingresar apellido paterno</string>
+    <string name="busqueda_nombre_apellido_msg_apellido_materno">Ingresar apellido materno</string>
+    <string name="busqueda_nombre_apellido_msg_dni">Ingresar D.N.I.</string>
+    <string name="busqueda_nombre_apellido_msg_registro_existoso">Registro Exitoso</string>
+    <string name="busqueda_nombre_apellido_msg_registro_no_existoso">Ocurrió un error en el Registro</string>
+
+    <string name="ofertas_cliente_title">Ofertas del Cliente</string>
+    <string name="ofertas_cliente_error_obtener_usuario">Error al obtener el identificador del usuario</string>
+    <string name="ofertas_cliente_msg_esperar">Espere por favor</string>
+    <string name="ofertas_cliente_msg_obtener_usuario">Obteniendo Usuario</string>
+    <string name="ofertas_cliente_msg_obtener_ofertas">Obteniendo las Ofertas</string>
+    <string name="ofertas_cliente_error_insertar_ofertas">Error al insertar las ofertas localmente</string>
+    <string name="ofertas_cliente_msg_ofertas_obtenidas">Ofertas obtenidas exitosamente</string>
+    <string name="ofertas_cliente_msg_obtener_ofertas_vacia">No se obtuvo ninguna oferta</string>
+    <string name="ofertas_cliente_error_id_cliente">¡Error! No se tiene el identificador del cliente</string>
+
+    <string name="item_oferta_cliente_title">Oferta</string>
+    <string name="item_oferta_cliente_oferta">Oferta</string>
+    <string name="item_oferta_cliente_monto">Monto</string>
+    <string name="item_oferta_cliente_descripcion_oferta">Descripción</string>
+    <string name="item_oferta_cliente_monto_oferta_cc">Con Casa</string>
+    <string name="item_oferta_cliente_monto_oferta_sc">Sin Casa</string>
+
+    <string name="actualizar_datos_cliente_title">Actualizar Datos</string>
+    <string name="actualizar_datos_cliente_telefono_uno">Telefono 1</string>
+    <string name="actualizar_datos_cliente_telefono_dos">Telefono 2</string>
+    <string name="actualizar_datos_cliente_telefono_tres">Telefono 3</string>
+    <string name="actualizar_datos_cliente_correo">Correo</string>
+    <string name="actualizar_datos_cliente_direccion">Direccion</string>
+    <string name="actualizar_datos_cliente_direccion_negocio">Direccion Negocio</string>
+    <string name="actualizar_datos_cliente_refencia_vivienda">Referencia Vivienda</string>
+    <string name="actualizar_datos_cliente_referencia_negocio">Referencia Negocio</string>
+    <string name="actualizar_datos_cliente_action_actualizar_datos">Actualizar Datos</string>
+    <string name="actualizar_datos_cliente_msg_telefonos">Ingrese al menos un telefono válido</string>
+    <string name="actualizar_datos_cliente_msg_telefonos_validos">Ingrese telefonos válidos</string>
+    <string name="actualizar_datos_cliente_msg_correo">Ingrese un correo</string>
+    <string name="actualizar_datos_cliente_msg_direccion_negocio">Ingrese una dirección de negocio</string>
+    <string name="actualizar_datos_cliente_msg_direccion_vivienda">Ingrese una dirección de vivienda</string>
+    <string name="actualizar_datos_cliente_msg_referencia_vivienda">Ingrese una referencia de vivienda</string>
+    <string name="actualizar_datos_cliente_msg_referencia_negocio">Ingrese una referencia de negocio</string>
+    <string name="actualizar_datos_cliente_error_obtener_id_cliente">¡Error! No se obtuvo el identificador del cliente</string>
+    <string name="actualizar_datos_cliente_msg_esperar">Espere por Favor</string>
+    <string name="actualizar_datos_cliente_msg_actualizar_cliente">Actualizando Clientes</string>
+    <string name="actualizar_datos_cliente_error_correo">Ingrese un correo válido</string>
+
+
+    <string name="registro_referido_title">Registro Referido</string>
+    <string name="registro_referido_dni_hint">D.N.I.</string>
+    <string name="registro_referido_nombres_hint">Nombres</string>
+    <string name="registro_referido_direccion_hint">Dirección</string>
+    <string name="registro_referido_telefono_hint">Teléfono</string>
+    <string name="registro_referido_departamento_hint">Departamento</string>
+    <string name="registro_referido_provincia_hint">Provincia</string>
+    <string name="registro_referido_distrito_hint">Distrito</string>
+    <string name="registro_referido_agencia_hint">Agencia</string>
+    <string name="registro_referido_producto_hint">Producto</string>
+    <string name="registro_referido_registrar_resultado_hint">Registrar Resultado</string>
+    <string name="registro_referido_action_registrar_cliente_referido">Registrar Cliente Referido</string>
+    <string name="registro_referido_msg_departamentos_obtenidos_existosamente">¡Departamentos obtenidos correctamente!</string>
+    <string name="registro_referido_error_obtener_departamentos">Departamentos no recuperados</string>
+    <string name="registro_referido_msg_provincias_obtenidas_exitosamente">¡Provincias obtenidas correctamente!</string>
+    <string name="registro_referido_error_obtener_provincias">Provincias no recuperadas</string>
+    <string name="registro_referido_msg_distritos_obtenidos_exitosamente">¡Distritos obtenidos correctamente!</string>
+    <string name="registro_referido_error_obtener_distritos">Distritos no recuperados</string>
+    <string name="registro_referido_error_insertar_departamentos">Error al insertar departamentos localmente</string>
+    <string name="registro_referido_error_insertar_provincias">Error al insertar provincias localmente</string>
+    <string name="registro_referido_error_insertar_distritos">Error al insertar distritos localmente</string>
+    <string name="registro_referido_msg_agencias_obtenidos_exitosamente">¡Agencias obtenidas correctamente!</string>
+    <string name="registro_referido_error_obtener_agencias">Agencias no recuperadas</string>
+    <string name="registro_referido_error_insertar_agencias">Error al insertar agencias localmente</string>
+    <string name="registro_referido_msg_productos_obtenidos_exitosamente">¡Productos obtenidos correctamente!</string>
+    <string name="registro_referido_error_obtener_productos">Productos no recuperados</string>
+    <string name="registro_referido_error_insertar_productos">Error al insertar productos localmente</string>
+    <string name="registro_referido_action_buscar">Buscar</string>
+    <string name="registro_referido_msg_persona_obtenida_exitosamente">¡Persona obtenida correctamente!</string>
+    <string name="registro_referido_error_obtener_persona">Persona no recuperada</string>
+    <string name="registro_referido_error_id_usuario">¡Error: No se obtuvo el identificador del usuario!</string>
+    <string name="registro_referido_msg_dni">Ingrese el D.N.I. válido</string>
+    <string name="registro_referido_msg_nombre">Ingrese el nombre de la persona</string>
+    <string name="registro_referido_msg_direccion">Ingrese la direccion de la persona</string>
+    <string name="registro_referido_msg_telefono">Ingrese el teléfono de la persona</string>
+    <string name="registro_referido_msg_departamento">Seleccione un departamento</string>
+    <string name="registro_referido_msg_provincia">Seleccione una provincia</string>
+    <string name="registro_referido_msg_distrito">Seleccione un distrito</string>
+    <string name="registro_referido_msg_agencia">Seleccione una agencia</string>
+    <string name="registro_referido_msg_producto">Seleccione un producto</string>
+    <string name="registro_referido_msg_esperar">Espere por favor</string>
+    <string name="registro_referido_msg_obtener_persona_reniec">Obteniendio Persona de la Reniec</string>
+    <!--    <string name="registro_referido_msg_obtener_id_usuario">Obteniendo Identificador del Usuario</string>-->
+    <string name="registro_referido_msg_obtener_id_usuario">Obteniendo información</string>
+    <string name="registro_referido_msg_id_usuario_obtenido_exitosamente">¡Id Usuario obtenido correctamente!</string>
+    <string name="registro_referido_error_obtener_id_usuario">Id Usuario no recuperado</string>
+
+    <string name="registro_referido_dialog_title">Registrar Resultado de Visita</string>
+    <string name="registro_referido_dialog_content">¿Desea continuar con el registro de resultado, sin haber programado una fecha de visita?</string>
+    <string name="registro_referido_dialog_action_si">Si</string>
+    <string name="registro_referido_dialog_action_no">No</string>
+
+    <string name="registro_referido_msg_insertar_referido_exitosamente">Inserción de Persona Referida Exitosamente</string>
+    <string name="registro_referido_error_insertar_referido_exitosamente">Error al insertar al Referido</string>
+    <string name="registro_referido_error_insertar_referido_existente">¡Error! Referido existente</string>
+
+    <string name="registro_referido_msg_sincronizando_referidos">Sincronizando Referido</string>
+    <string name="registro_referido_error_sincronizacion_referidos">Error al Sincronizar a los Referidos</string>
+    <string name="registro_referido_action_add">Agregar</string>
+    <string name="eliminar_referido_action_del">Eliminar</string>
+
+    <string name="item_credito_state">Estado</string>
+    <string name="item_credito_refund_date">Fech. Desembolso</string>
+    <string name="item_credito_amount">Monto</string>
+
+    <string name="listado_creditos_title">Listado de Créditos</string>
+
+</resources>

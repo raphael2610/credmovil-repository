@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:clipToPadding="false">
+
+     <!--<Spinner
+         android:layout_width="match_parent"
+         android:layout_height="30dp"
+         android:id="@+id/cboInstrucciones"
+         android:layout_margin="10dp">
+     </Spinner>-->
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context="pe.com.cmacica.flujocredito.ViewModel.GeoReferenciacion.ViewGeoRefActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment">
+
+    </fragment>
+
+    <include layout="@layout/elemento_modal_directions" />
+
+</android.support.design.widget.CoordinatorLayout>

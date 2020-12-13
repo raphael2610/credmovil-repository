@@ -1,0 +1,35 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="pe.com.cmacica.flujocredito.ViewModel.AgendaComercial.ReferidoFragment">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerviewReferred"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"></android.support.v7.widget.RecyclerView>
+
+
+    <Button
+        android:id="@+id/buttonSynchronize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/espacio_norma_1"
+        android:layout_marginBottom="@dimen/espacio_norma_1"
+        android:paddingStart="@dimen/espacio_norma_1"
+        android:paddingEnd="@dimen/espacio_norma_1"
+        android:text="@string/cartera_analista_action_sync_up"
+        android:textColor="@android:color/white"
+        android:drawableStart="@drawable/ic_save"
+        android:drawableTint="@android:color/white"
+        android:drawablePadding="4dp"
+        android:background="@drawable/button_background"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"></Button>
+
+</android.support.constraint.ConstraintLayout>

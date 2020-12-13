@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f44336</color>
+    <color name="colorPrimaryDark">#d32f2f</color>
+    <color name="colorAccent">#9E9E9E</color>
+    <color name="window_background">#ffffff</color>
+    <color name="TextPrimary">#212121</color>
+    <color name="TextSecondary">#757575</color>
+
+    <color name = "Color_FloatActionButon">#2c7dff</color>
+    <color name="colorAction">#858AA3</color>
+    <color name="ColorEditTextPopUp">#febb87</color>
+    <color name="ColorSentinel">#03942e</color><![CDATA[
+
+
+
+
+
+
+
+    >
+
+
+]]>
+</resources>

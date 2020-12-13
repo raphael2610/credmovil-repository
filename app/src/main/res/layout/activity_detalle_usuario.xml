@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.com.cmacica.flujocredito.ViewModel.CarteraAnalista.DetalleUsuarioActivity">
+
+
+    <include
+        layout="@layout/toolbar"></include>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fillViewport="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guidelineSeparationOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/espacio_norma_1"></android.support.constraint.Guideline>
+            <android.support.constraint.Guideline
+                android:id="@+id/guidelineSeparationTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/espacio_norma_1"></android.support.constraint.Guideline>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardviewPersonalInformation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineSeparationOne"
+                app:layout_constraintEnd_toEndOf="@id/guidelineSeparationTwo"
+                android:layout_marginTop="@dimen/espacio_norma_1"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="4dp">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/espacio_norma_1">
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/guidelineOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.70"></android.support.constraint.Guideline>
+
+                    <TextView
+                        android:id="@+id/textPersonalInformation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineOne"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="@string/detalle_usuario_datos_personales"
+                        style="@style/Subtitle2"></TextView>
+                    <View
+                        android:id="@+id/viewDivider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guidelineOne"
+                        app:layout_constraintTop_toBottomOf="@id/textPersonalInformation"
+                        android:background="@android:color/darker_gray"></View>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:src="@drawable/profile"></ImageView>
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/viewDivider"
+                        android:layout_marginTop="@dimen/espacio_norma_1"
+                        android:text="@string/detalle_usuario_nombre"
+                        android:textAllCaps="true"></TextView>
+                    <TextView
+                        android:id="@+id/textNameContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textName"
+                        android:text="Demetrio Rubina Espinoza"
+                        android:textColor="@android:color/black"></TextView>
+                    <TextView
+                        android:id="@+id/textIdentityDocument"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textNameContent"
+                        android:layout_marginTop="@dimen/espacio_norma_1"
+                        android:text="@string/detalle_usuario_documento_identidad"
+                        android:textAllCaps="true"></TextView>
+                    <TextView
+                        android:id="@+id/textIdentityDocumentContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textIdentityDocument"
+                        android:text=""
+                        android:textColor="@android:color/black"></TextView>
+
+                    <TextView
+                        android:id="@+id/textPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textIdentityDocumentContent"
+                        android:layout_marginTop="@dimen/espacio_norma_1"
+                        android:text="@string/detalle_usuario_telefono"
+                        android:textAllCaps="true"></TextView>
+                    <TextView
+                        android:id="@+id/textPhoneContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textPhone"
+                        android:text=""
+                        android:textColor="@android:color/black"></TextView>
+
+                    <TextView
+                        android:id="@+id/textGeoreferenced"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textPhoneContent"
+                        android:layout_marginTop="@dimen/espacio_norma_1"
+                        android:text="@string/detalle_usuario_georeferenciado"
+                        android:textAllCaps="true"></TextView>
+
+                    <TextView
+                        android:id="@+id/textGeoreferencedContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBaseline_toBaselineOf="@id/textGeoreferenced"
+                        app:layout_constraintStart_toEndOf="@id/textGeoreferenced"
+                        android:layout_marginStart="@dimen/espacio_norma_2"
+                        android:text=""
+                        android:textColor="@android:color/black"></TextView>
+
+
+                    <Button
+                        android:id="@+id/buttonGeoreference"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/textGeoreferenced"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="@dimen/espacio_norma_2"
+                        android:layout_marginTop="@dimen/espacio_norma_1"
+                        android:text="@string/detalle_usuario_action_georeferencias"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/button_background_two"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"></Button>
+
+                    <TextView
+                        android:id="@+id/buttonEditPersonalInformation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/buttonGeoreference"
+                        android:layout_marginEnd="@dimen/espacio_norma_2"
+                        android:padding="@dimen/espacio_norma_1"
+                        android:background="@android:color/white"
+                        android:text="@string/detalle_usuario_action_editar"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:visibility="invisible"></TextView>
+
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textCredits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/cardviewPersonalInformation"
+                app:layout_constraintStart_toStartOf="@id/guidelineSeparationOne"
+                app:layout_constraintEnd_toEndOf="@id/guidelineSeparationTwo"
+                android:layout_marginTop="@dimen/espacio_norma_1"
+                android:text="@string/detalle_usuario_creditos"
+                style="@style/Subtitle2"></TextView>
+
+
+            <ProgressBar
+                android:id="@+id/progressbarCredits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/textCredits"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineSeparationOne"
+                app:layout_constraintEnd_toEndOf="@id/guidelineSeparationTwo"></ProgressBar>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toBottomOf="@id/textCredits"
+                android:visibility="invisible"></View>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerviewCredits"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textCredits"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                android:visibility="gone"></android.support.v7.widget.RecyclerView>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constraintlayoutCreditsNotFound"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toBottomOf="@id/textCredits"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/espacio_norma_1"
+                android:visibility="gone">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guidelineError"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5"></android.support.constraint.Guideline>
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/credits_error"
+                    app:layout_constraintBottom_toBottomOf="@id/guidelineError"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"></ImageView>
+
+                <TextView
+                    android:id="@+id/textErrorTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/image"
+                    android:text="@string/detalle_usuario_error_title"
+                    android:textAlignment="center"
+                    style="@style/Subtitle2"></TextView>
+                <TextView
+                    android:id="@+id/textErrorContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/textErrorTitle"
+                    android:text="@string/detalle_usuario_msg_creditos_no_encontrados"
+                    android:textAlignment="center"></TextView>
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <!--
+            <Button
+                android:id="@+id/buttonGeoreference"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineSeparationOne"
+                app:layout_constraintEnd_toEndOf="@id/guidelineSeparationTwo"
+                android:layout_marginBottom="@dimen/espacio_norma_1"
+                android:background="@drawable/button_background_two"
+                android:text="@string/detalle_usuario_action_georeferencias"
+                android:textColor="@android:color/white"></Button>
+            -->
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</android.support.constraint.ConstraintLayout>
