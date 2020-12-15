@@ -5,16 +5,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
+import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.R;
+import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.ExpedienteCredito.CreditoAdapter;
 
 
 public class ListadoCreditosActivity extends AppCompatActivity {
 
     private static final String TAG = "ListadoCreditosActivity";
+
+    public static final String EXTRA_CLIENT = "client";
+
     private Toolbar _toolbar;
-    private RecyclerView _recyclerviewOffers;
+    private Credito _credit;
+    private Cliente _client;
+    private RecyclerView _recyclerviewCredits;
+    private CreditoAdapter _creditoAdapter;
     private ProgressDialog _progressDialog;
+
+
+    // region lifecycle
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +47,29 @@ public class ListadoCreditosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_listado_creditos);
 
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
-        _recyclerviewOffers = (RecyclerView) findViewById(R.id.recyclerviewOffers) ;
+        _recyclerviewCredits = (RecyclerView) findViewById(R.id.recyclerviewCredits) ;
 
+        setupView();
+    }
+
+    // endregion
+
+
+
+    // region setupView
+
+    private void setupView() {
         initToolbar();
+        setupRecyclerView();
+    }
+
+    private void initializeAndGetInformation() {
+
+        try {
+            _client = getIntent().getParcelableExtra(EXTRA_CLIENT);
+            searchServerCredits();
+        } catch (Exception e) { }
+
     }
 
 
@@ -34,5 +79,103 @@ public class ListadoCreditosActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.listado_creditos_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    private void setupRecyclerView() {
+        List<Credito> creditoList = new ArrayList<>();
+        _creditoAdapter = new CreditoAdapter(creditoList);
+        _recyclerviewCredits.setAdapter(_creditoAdapter);
+    }
+
+    private void loadListCredits(JSONArray jsonCredits) throws JSONException {
+
+        List<Credito> credits = new ArrayList<>();
+
+        for (int i=0; i<jsonCredits.length(); i++) {
+
+            JSONObject credit = jsonCredits.getJSONObject(i);
+
+            Credito credito = new Credito();
+            credito.setId(i);
+            credito.setPersonCode(credit.getString("cPersCod"));
+            credito.setNumberCredit(credit.getString("cCtaCod"));
+            credito.setTypeCredit(credit.getString("cTipoCred"));
+            credito.setRefundDate(credit.getString("dSolicitado"));
+            credito.setState(credit.getString("cEstadoDesc"));
+            credito.setAmount(credit.getString("nPrestamo"));
+            credits.add(credito);
+
+        }
+
+        _creditoAdapter.updateList(credits);
+
+    }
+
+    // endregion
+
+
+
+    // region network
+
+    private void searchServerCredits() {
+
+        String personCode = _client.getPersonCode();
+
+        if (personCode.equals("")) {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            _progressDialog.cancel();
+            return;
+        }
+
+        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
+
+        String url = String.format(SrvCmacIca.GET_RESULTADOS_VISITA, _client.getPersonCode());
+
+
+        VolleySingleton.getInstance(this)
+                .addToRequestQueue(
+                        new JsonObjectRequest(
+                                Request.Method.GET,
+                                url,
+                                response -> {
+                                    responseServerCredits(response);
+                                },
+                                error -> {
+                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                        )
+                );
+
+
+    }
+
+    private void responseServerCredits(JSONObject response) {
+
+        _progressDialog.cancel();
+
+        try {
+
+            if (response.getBoolean("IsCorrect")) {
+
+                JSONArray jsonCredits = response.getJSONArray("Data");
+
+                if (jsonCredits.length() == 0) {
+                    Toast.makeText(this, getString(R.string.listado_creditos_error_not_credits), Toast.LENGTH_SHORT).show();
+                } else {
+                    loadListCredits(jsonCredits);
+                }
+
+            } else {
+                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
+            }
+
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    // endregion
 
 }

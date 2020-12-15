@@ -452,4 +452,8 @@
 
     <string name="listado_creditos_title">Listado de Créditos</string>
 
+    <string name="listado_creditos_error_codigo_persona">Error al obtener el código de Persona</string>
+    <string name="listado_creditos_msg_esperar">Espere por favor</string>
+    <string name="listado_creditos_msg_obtener_creditos">Obteniendo las Créditos</string>
+    <string name="listado_creditos_error_not_credits">¡No se encontraron créditos!</string>
 </resources>

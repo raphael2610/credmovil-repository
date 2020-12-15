@@ -156,5 +156,12 @@ public class SrvCmacIca {
     public static final String GET_VALIDAR_CLIENTE_REGISTRO_RESULTADO = HOST_WEBAPI  + "Persona/ValidarClienteRegistroResultadosBDVentas?idUsuario=%s&idCliente=%s";
     public static final String POST_REFERIDOS = HOST_WEBAPI +  "Persona/InsertarReferidos";
     public static final String GET_VALIDAR_CLIENTE_REFERIDOS = HOST_WEBAPI +  "Persona/ValidarClienteReferidoBDVentas?cNumeroDocumento=%s";
-	}
+
+
+      // region ExpedienteCredito
+      public static final String GET_EXPEDIENTE_CREDITO = "Persona/ObtenerExpedienteCredito?CodigoPersona=%s";
+      // endregion
+
+
+}
 
