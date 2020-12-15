@@ -159,6 +159,7 @@ public class SrvCmacIca {
 
 
       // region ExpedienteCredito
+      public static final String GET_INFORMACION_CLIENTE = "Persona/FiltroPersona?DOIPersona=%s";
       public static final String GET_EXPEDIENTE_CREDITO = "Persona/ObtenerExpedienteCredito?CodigoPersona=%s";
       // endregion
 

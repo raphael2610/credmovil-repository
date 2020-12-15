@@ -456,4 +456,10 @@
     <string name="listado_creditos_msg_esperar">Espere por favor</string>
     <string name="listado_creditos_msg_obtener_creditos">Obteniendo las Créditos</string>
     <string name="listado_creditos_error_not_credits">¡No se encontraron créditos!</string>
+
+    <string name="expediente_credito_title">Expediente Crédito</string>
+    <string name="expediente_credito_msg_esperar">Espere por favor</string>
+    <string name="expediente_credito_obtener_informacion_cliente">Obteniendo información del cliente</string>
+    <string name="expediente_credito_error_dni">Error DNI ingresado</string>
+
 </resources>
