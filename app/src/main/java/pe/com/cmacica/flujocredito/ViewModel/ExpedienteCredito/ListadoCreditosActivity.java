@@ -1,6 +1,7 @@
 package pe.com.cmacica.flujocredito.ViewModel.ExpedienteCredito;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -25,7 +26,8 @@ import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.ExpedienteCredito.CreditoAdapter;
 
 
-public class ListadoCreditosActivity extends AppCompatActivity {
+public class ListadoCreditosActivity extends AppCompatActivity
+                                    implements CreditoAdapter.CreditoAdapterListener {
 
     private static final String TAG = "ListadoCreditosActivity";
 
@@ -49,6 +51,7 @@ public class ListadoCreditosActivity extends AppCompatActivity {
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
         _recyclerviewCredits = (RecyclerView) findViewById(R.id.recyclerviewCredits) ;
 
+        initializeAndGetInformation();
         setupView();
     }
 
@@ -82,7 +85,7 @@ public class ListadoCreditosActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         List<Credito> creditoList = new ArrayList<>();
-        _creditoAdapter = new CreditoAdapter(creditoList);
+        _creditoAdapter = new CreditoAdapter(creditoList, this);
         _recyclerviewCredits.setAdapter(_creditoAdapter);
     }
 
@@ -114,11 +117,35 @@ public class ListadoCreditosActivity extends AppCompatActivity {
 
 
 
+    // region callback
+
+    @Override
+    public void onClick(Credito credito) {
+        navigateToConfigurationCredito(credito);
+    }
+
+    // endregion
+
+
+
+    // region navigation
+    private void navigateToConfigurationCredito(Credito credito) {
+        Intent intent = new Intent(this, ConfiguracionCreditoActivity.class);
+        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CREDIT, credito);
+        startActivity(intent);
+    }
+    // endregion
+
+
+
     // region network
 
     private void searchServerCredits() {
 
         String personCode = _client.getPersonCode();
+
+        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
+
 
         if (personCode.equals("")) {
             Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
@@ -126,9 +153,8 @@ public class ListadoCreditosActivity extends AppCompatActivity {
             return;
         }
 
-        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
 
-        String url = String.format(SrvCmacIca.GET_RESULTADOS_VISITA, _client.getPersonCode());
+        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode());
 
 
         VolleySingleton.getInstance(this)
@@ -157,7 +183,8 @@ public class ListadoCreditosActivity extends AppCompatActivity {
 
             if (response.getBoolean("IsCorrect")) {
 
-                JSONArray jsonCredits = response.getJSONArray("Data");
+                JSONObject data = response.getJSONObject("Data");
+                JSONArray jsonCredits = data.getJSONArray("ExpedienteCredito");
 
                 if (jsonCredits.length() == 0) {
                     Toast.makeText(this, getString(R.string.listado_creditos_error_not_credits), Toast.LENGTH_SHORT).show();

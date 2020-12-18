@@ -1,6 +1,7 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.ExpedienteCredito;
 
 import android.support.v7.util.DiffUtil;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,12 @@ import pe.com.cmacica.flujocredito.R;
 public class CreditoAdapter extends RecyclerView.Adapter<CreditoAdapter.ViewHolder> {
 
     private List<Credito> _creditoList;
+    private CreditoAdapterListener _creditoAdapterListener;
 
-    public CreditoAdapter(List<Credito> creditoList) {
+    public CreditoAdapter(List<Credito> creditoList,
+                          CreditoAdapterListener creditoAdapterListener) {
         this._creditoList = creditoList;
+        this._creditoAdapterListener = creditoAdapterListener;
     }
 
     @Override
@@ -27,12 +31,17 @@ public class CreditoAdapter extends RecyclerView.Adapter<CreditoAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(_creditoList.get(position));
+        holder.bind(_creditoList.get(position), _creditoAdapterListener);
     }
 
     @Override
     public int getItemCount() {
         return _creditoList.size();
+    }
+
+
+    public interface CreditoAdapterListener {
+        void onClick(Credito credito);
     }
 
 
@@ -50,6 +59,7 @@ public class CreditoAdapter extends RecyclerView.Adapter<CreditoAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
+        private CardView _cardviewExpedienteCredito;
         private TextView _appcompattextviewNamberContent;
         private TextView _appcompattextviewCreditTypeContent;
         private TextView _textRefundDateContent;
@@ -59,6 +69,7 @@ public class CreditoAdapter extends RecyclerView.Adapter<CreditoAdapter.ViewHold
 
         private ViewHolder(View itemView) {
             super(itemView);
+            _cardviewExpedienteCredito = (CardView) itemView.findViewById(R.id.cardviewExpedienteCredito);
             _appcompattextviewNamberContent = (TextView) itemView.findViewById(R.id.appcompattextviewNamberContent);
             _appcompattextviewCreditTypeContent = (TextView) itemView.findViewById(R.id.appcompattextviewCreditTypeContent);
             _textRefundDateContent = (TextView) itemView.findViewById(R.id.textRefundDateContent);
@@ -75,7 +86,8 @@ public class CreditoAdapter extends RecyclerView.Adapter<CreditoAdapter.ViewHold
 
         }
 
-        public void bind(Credito credito) {
+        public void bind(Credito credito, CreditoAdapterListener creditoAdapterListener) {
+            _cardviewExpedienteCredito.setOnClickListener(view -> creditoAdapterListener.onClick(credito));
             _appcompattextviewNamberContent.setText(credito.getNumberCredit());
             _appcompattextviewCreditTypeContent.setText(credito.getTypeCredit());
             _textRefundDateContent.setText(credito.getRefundDate());
