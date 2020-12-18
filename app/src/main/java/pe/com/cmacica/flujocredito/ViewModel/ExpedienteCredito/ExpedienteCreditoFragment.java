@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
@@ -88,13 +89,14 @@ public class ExpedienteCreditoFragment extends Fragment {
 
     private void searchServerCustomerInformation() {
 
+        _progressDialog = ProgressDialog.show(getContext(), getString(R.string.expediente_credito_msg_esperar), getString(R.string.expediente_credito_obtener_informacion_cliente));
+
         if (_edittextDni.length() < 8 ){
             Toast.makeText(getContext(), getString(R.string.expediente_credito_error_dni), Toast.LENGTH_SHORT).show();
             _progressDialog.cancel();
             return;
         }
 
-        _progressDialog = ProgressDialog.show(getContext(), getString(R.string.expediente_credito_msg_esperar), getString(R.string.expediente_credito_obtener_informacion_cliente));
 
         String url = String.format(SrvCmacIca.GET_INFORMACION_CLIENTE, _edittextDni.getText().toString());
 
@@ -122,6 +124,15 @@ public class ExpedienteCreditoFragment extends Fragment {
         try {
 
             if (response.getBoolean("IsCorrect")) {
+                JSONArray data = response.getJSONArray("Data");
+                JSONObject customerInformation = data.getJSONObject(0);
+
+                _edittextNameAndLastname.setText(customerInformation.getString("NombrePersona"));
+                _edittextTypePerson.setText(customerInformation.getString("TipoPersona"));
+                _client.setId(0);
+                _client.setName(customerInformation.getString("NombrePersona"));
+                _client.setTypePerson(customerInformation.getString("TipoPersona"));
+                _client.setPersonCode(customerInformation.getString("CodigoPersona"));
 
             } else {
                 Toast.makeText(getContext(), response.getString("Message"), Toast.LENGTH_SHORT).show();
