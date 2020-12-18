@@ -462,4 +462,6 @@
     <string name="expediente_credito_obtener_informacion_cliente">Obteniendo información del cliente</string>
     <string name="expediente_credito_error_dni">Error DNI ingresado</string>
 
+    <string name="configuracion_credito_title">Configuración de Créditos</string>
+
 </resources>
