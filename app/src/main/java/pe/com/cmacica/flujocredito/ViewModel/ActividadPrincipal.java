@@ -51,6 +51,7 @@ import pe.com.cmacica.flujocredito.ViewModel.General.ActividadConfiguracion;
 import pe.com.cmacica.flujocredito.ViewModel.General.fragmento_consultar_datos;
 import pe.com.cmacica.flujocredito.ViewModel.GeoReferenciacion.GeoRefFragment;
 import pe.com.cmacica.flujocredito.ViewModel.GeoReferenciacion.UploadGeoRefFragment;
+import pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito.NuevoExpedienteCreditoFragment;
 import pe.com.cmacica.flujocredito.ViewModel.PlanPago.fragmentoSimuladorCredito;
 import pe.com.cmacica.flujocredito.ViewModel.Recuperaciones.fragmentoListaRecuperaciones;
 import pe.com.cmacica.flujocredito.ViewModel.Solicitud.FragmentoListaSolCred;
@@ -214,6 +215,12 @@ public class ActividadPrincipal extends AppCompatActivity implements
                 fragmentoGenerico = new ExpedienteCreditoFragment();
                 TagGrament = ExpedienteCreditoFragment.class.getSimpleName();
                 setTitle("Expediente Credito");
+                break;
+
+            case R.id.itemNuevoExpedienteCredito:
+                fragmentoGenerico = new NuevoExpedienteCreditoFragment();
+                TagGrament = NuevoExpedienteCreditoFragment.class.getSimpleName();
+                setTitle(getString(R.string.item_NuevoExpedienteCredito));
                 break;
 
              /*case R.id.nav_Recuperaciones:
