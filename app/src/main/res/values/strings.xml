@@ -464,4 +464,9 @@
 
     <string name="configuracion_credito_title">Configuración de Créditos</string>
 
+    <string name="listado_expediente_title">Listado de Expedientes</string>
+    <string name="listado_expediente_msg_esperar">Espere por favor</string>
+    <string name="listado_expediente_msg_obtener_expedientes">Obteniendo los expedientes</string>
+    <string name="listado_expediente_error_not_proceedings">¡No se encontraron expedientes!</string>
+
 </resources>
