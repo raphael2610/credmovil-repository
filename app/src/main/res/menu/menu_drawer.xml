@@ -78,6 +78,11 @@
                     android:icon="@drawable/ic_file_document"
                     android:title="@string/item_FteIngresoDep"
                     />
+                <item
+                    android:id="@+id/itemNuevoExpedienteCredito"
+                    android:icon="@drawable/ic_file_document"
+                    android:title="@string/item_NuevoExpedienteCredito"
+                    />
             </menu>
         </item>
 
