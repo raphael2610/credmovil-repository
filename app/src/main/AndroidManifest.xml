@@ -29,7 +29,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlujoCredito">
-        <activity android:name=".ViewModel.ExpedienteCredito.ListadoExpedientesActivity"></activity>
+        <activity
+            android:name=".ViewModel.NuevoExpedienteCredito.ConfiguracionCreditoActivity"
+            android:label="@string/title_activity_configuracion_credito"></activity>
+        <activity android:name=".ViewModel.ExpedienteCredito.ListadoExpedientesActivity" />
         <activity android:name=".ViewModel.ExpedienteCredito.ListadoCreditosActivity" />
         <activity android:name=".ViewModel.ExpedienteCredito.ConfiguracionCreditoActivity" />
         <activity android:name=".ViewModel.AgendaComercial.RegistroResultadoActivity" />

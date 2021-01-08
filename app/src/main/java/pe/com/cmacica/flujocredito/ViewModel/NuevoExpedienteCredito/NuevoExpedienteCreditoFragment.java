@@ -65,7 +65,7 @@ public class NuevoExpedienteCreditoFragment extends Fragment {
 
     private void setupView() {
         _appcompatimageviewSearch.setOnClickListener(view -> { searchServerCustomerInformation(); });
-        _buttonConsult.setOnClickListener(view -> { navigateToListadoCreditos(); });
+        _buttonConsult.setOnClickListener(view -> { navigateToConfiguracionCredito(); });
     }
 
     // endregion
@@ -74,9 +74,9 @@ public class NuevoExpedienteCreditoFragment extends Fragment {
 
     // region navigation
 
-    private void navigateToListadoCreditos() {
-        Intent intent = new Intent(getContext(), ListadoCreditosActivity.class);
-        intent.putExtra(ListadoCreditosActivity.EXTRA_CLIENT, _client);
+    private void navigateToConfiguracionCredito() {
+        Intent intent = new Intent(getContext(), ConfiguracionCreditoActivity.class);
+//        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
     }
 

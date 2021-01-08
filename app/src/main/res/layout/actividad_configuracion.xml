@@ -52,13 +52,13 @@
 
         <Button
 
-        android:id="@+id/btnSyncPersona"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:padding="4dp"
-        android:text="Sincronizar"
-        android:textColor="@color/cardview_light_background" />
+            android:id="@+id/btnSyncPersona"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:padding="4dp"
+            android:text="Sincronizar"
+            android:textColor="@color/cardview_light_background" />
 
     </LinearLayout>
 
