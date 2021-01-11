@@ -14,6 +14,7 @@ import org.w3c.dom.Text;
 
 import java.util.NavigableMap;
 
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.ViewModel.Digitacion.FragmentoIgrFueraNegDet;
@@ -23,9 +24,11 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
     private static final String TAG = "ConfiguracionCreditoAct";
 
     public static final String EXTRA_CREDIT = "credit";
+    public static final String EXTRA_CLIENT = "client";
 
     private Toolbar _toolbar;
     private Credito _credit;
+    private Cliente _client;
     private CardView _cardviewPersonalInformation;
     private ImageView _imageviewPersonalInformation;
     private TextView _textviewPersonalInformation;
@@ -130,6 +133,7 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
 
         try {
             _credit = getIntent().getParcelableExtra(EXTRA_CREDIT);
+            _client = getIntent().getParcelableExtra(EXTRA_CLIENT);
         } catch (Exception e) {}
 
     }
@@ -144,6 +148,7 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ListadoExpedientesActivity.class);
         intent.putExtra(ListadoExpedientesActivity.EXTRA_CREDIT, _credit);
         intent.putExtra(ListadoExpedientesActivity.EXTRA_CONFIGURATION, configuration);
+        intent.putExtra(ListadoExpedientesActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
 
     }

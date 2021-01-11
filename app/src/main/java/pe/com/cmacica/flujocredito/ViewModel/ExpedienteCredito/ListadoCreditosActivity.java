@@ -24,6 +24,7 @@ import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.ExpedienteCredito.CreditoAdapter;
+import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
 
 
 public class ListadoCreditosActivity extends AppCompatActivity
@@ -132,6 +133,7 @@ public class ListadoCreditosActivity extends AppCompatActivity
     private void navigateToConfigurationCredito(Credito credito) {
         Intent intent = new Intent(this, ConfiguracionCreditoActivity.class);
         intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CREDIT, credito);
+        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
     }
     // endregion
@@ -143,6 +145,9 @@ public class ListadoCreditosActivity extends AppCompatActivity
     private void searchServerCredits() {
 
         String personCode = _client.getPersonCode();
+        String user = UPreferencias.ObtenerUserLogeo(getApplicationContext());
+        // TODO dinamico user
+        user = "ERMM";
 
         _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
 
@@ -154,8 +159,8 @@ public class ListadoCreditosActivity extends AppCompatActivity
         }
 
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode());
-
+        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
+        String hola = "devCristian";
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(

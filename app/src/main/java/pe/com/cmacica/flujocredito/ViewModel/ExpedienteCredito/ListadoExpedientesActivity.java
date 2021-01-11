@@ -19,6 +19,7 @@ import java.util.List;
 
 import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
 import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
 import pe.com.cmacica.flujocredito.R;
@@ -30,12 +31,14 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
     public static final String EXTRA_CREDIT = "credit";
     public static final String EXTRA_CONFIGURATION = "configuration";
+    public static final String EXTRA_CLIENT = "client";
 
     private Toolbar _toolbar;
     private RecyclerView _recyclerviewFiles;
     private ExpedienteAdapter _proceedingAdapter;
     private ProgressDialog _progressDialog;
     private Credito _credit;
+    private Cliente _client;
     private int _configuration = 0;
 
 
@@ -69,6 +72,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         try {
             _credit = getIntent().getParcelableExtra(EXTRA_CREDIT);
             _configuration = getIntent().getIntExtra(EXTRA_CONFIGURATION, 0);
+            _client = getIntent().getParcelableExtra(EXTRA_CLIENT);
             searchServerFiles();
         } catch (Exception e) { }
 
@@ -119,11 +123,17 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         _progressDialog = ProgressDialog.show(this, getString(R.string.listado_expediente_msg_esperar), getString(R.string.listado_expediente_msg_obtener_expedientes));
 
         String account = _credit.getNumberCredit();
+        String personCode = _client.getPersonCode();
 
         if (account.equals("")) {
             Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             _progressDialog.cancel();
             return;
+        }
+
+        if (personCode.equals("")) {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            _progressDialog.cancel();
         }
 
         if (_configuration == 0) {
@@ -132,7 +142,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             return;
         }
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, String.valueOf(_configuration));
+        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, String.valueOf(_configuration), personCode);
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
