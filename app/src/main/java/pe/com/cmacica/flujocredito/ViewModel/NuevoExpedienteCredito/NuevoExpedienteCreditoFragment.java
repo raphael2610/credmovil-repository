@@ -22,7 +22,6 @@ import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
 import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.R;
-import pe.com.cmacica.flujocredito.ViewModel.ExpedienteCredito.ListadoCreditosActivity;
 
 
 public class NuevoExpedienteCreditoFragment extends Fragment {
@@ -65,7 +64,7 @@ public class NuevoExpedienteCreditoFragment extends Fragment {
 
     private void setupView() {
         _appcompatimageviewSearch.setOnClickListener(view -> { searchServerCustomerInformation(); });
-        _buttonConsult.setOnClickListener(view -> { navigateToConfiguracionCredito(); });
+        _buttonConsult.setOnClickListener(view -> { navigateToListadoCreditos(); });
     }
 
     // endregion
@@ -74,9 +73,9 @@ public class NuevoExpedienteCreditoFragment extends Fragment {
 
     // region navigation
 
-    private void navigateToConfiguracionCredito() {
-        Intent intent = new Intent(getContext(), ConfiguracionCreditoActivity.class);
-//        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CLIENT, _client);
+    private void navigateToListadoCreditos() {
+        Intent intent = new Intent(getContext(), ListadoCreditosActivity.class);
+        intent.putExtra(ListadoCreditosActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
     }
 
