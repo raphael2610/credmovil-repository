@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import pe.com.cmacica.flujocredito.R;
 
-public class AddExpedienteActivity extends AppCompatActivity {
+public class UpdateExpedienteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_expediente);
+        setContentView(R.layout.activity_update_expediente);
     }
 }

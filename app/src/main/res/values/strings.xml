@@ -72,8 +72,10 @@
     <string name="accion_sync">Sincronizar</string>
     <string name="accion_eliminar">Eliminar</string>
     <string name="accion_guardar">Guardar</string>
+    <string name="action_save">guardar</string>
     <string name="action_update">actualizar</string>
     <string name="action_delete">eliminar</string>
+    <string name="action_take_photo">tomar foto</string>
 
     <!-- Diálogos -->
     <string name="dialog_ok">OK</string>

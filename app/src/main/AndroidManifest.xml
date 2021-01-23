@@ -29,7 +29,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlujoCredito">
-        <activity android:name=".ViewModel.NuevoExpedienteCredito.AddExpedienteActivity"></activity>
+        <activity android:name=".ViewModel.NuevoExpedienteCredito.UpdateExpedienteActivity"></activity>
+        <activity android:name=".ViewModel.NuevoExpedienteCredito.ListadoExpedientesActivity" />
+        <activity android:name=".ViewModel.NuevoExpedienteCredito.AddExpedienteActivity" />
         <activity android:name=".ViewModel.NuevoExpedienteCredito.ListadoCreditosActivity" />
         <activity
             android:name=".ViewModel.NuevoExpedienteCredito.ConfiguracionCreditoActivity"
