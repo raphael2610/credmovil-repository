@@ -134,6 +134,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         if (personCode.equals("")) {
             Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             _progressDialog.cancel();
+            return;
         }
 
         if (_configuration == 0) {
@@ -142,7 +143,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             return;
         }
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, String.valueOf(_configuration), personCode);
+        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, String.valueOf(_configuration));
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
