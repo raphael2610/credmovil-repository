@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewModel.NuevoExpedienteCredito.ExpedienteActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"></android.support.constraint.Guideline>
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp"></android.support.constraint.Guideline>
+
+    <include
+        layout="@layout/toolbar"></include>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/buttonAccept"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="64dp"></ImageView>
+
+    <Button
+        android:id="@+id/buttonAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="32dp"
+        android:paddingStart="@dimen/espacio_norma_1"
+        android:paddingEnd="@dimen/espacio_norma_1"
+        android:text="@string/action_accept"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_background"></Button>
+
+</android.support.constraint.ConstraintLayout>
