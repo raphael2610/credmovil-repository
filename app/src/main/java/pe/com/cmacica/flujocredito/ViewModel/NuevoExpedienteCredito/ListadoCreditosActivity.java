@@ -130,9 +130,9 @@ public class ListadoCreditosActivity extends AppCompatActivity
 
     // region navigation
     private void navigateToConfigurationCredito(Credito credito) {
-        Intent intent = new Intent(this, pe.com.cmacica.flujocredito.ViewModel.ExpedienteCredito.ConfiguracionCreditoActivity.class);
+        Intent intent = new Intent(this, ConfiguracionCreditoActivity.class);
         intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CREDIT, credito);
-//        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CLIENT, _client);
+        intent.putExtra(ConfiguracionCreditoActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
     }
     // endregion

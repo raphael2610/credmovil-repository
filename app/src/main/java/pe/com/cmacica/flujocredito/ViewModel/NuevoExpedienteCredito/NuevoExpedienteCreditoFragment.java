@@ -36,7 +36,6 @@ public class NuevoExpedienteCreditoFragment extends Fragment {
     private Cliente _client;
 
 
-
     // region lifeycle
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

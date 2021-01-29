@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -123,7 +124,9 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         _progressDialog = ProgressDialog.show(this, getString(R.string.listado_expediente_msg_esperar), getString(R.string.listado_expediente_msg_obtener_expedientes));
 
         String account = _credit.getNumberCredit();
+//        account = "108493041000034584";
         String personCode = _client.getPersonCode();
+//        personCode = "1081800207730";
 
         if (account.equals("")) {
             Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
@@ -143,7 +146,8 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             return;
         }
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, String.valueOf(_configuration));
+        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, 1, personCode);
+        Log.d("CRISTIAN", url);
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
@@ -170,8 +174,8 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
             if (response.getBoolean("IsCorrect")) {
 
-                JSONObject data = response.getJSONObject("Data");
-                JSONArray jsonFiles = data.getJSONArray("HistorialExpedientes");
+//                JSONObject data = response.getJSONObject("Data");
+                JSONArray jsonFiles = response.getJSONArray("Data");
 
                 if (jsonFiles.length() == 0) {
                     Toast.makeText(this, getString(R.string.listado_expediente_error_not_proceedings), Toast.LENGTH_SHORT).show();
