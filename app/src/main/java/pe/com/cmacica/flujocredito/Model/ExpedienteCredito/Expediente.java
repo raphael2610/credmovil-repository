@@ -7,6 +7,7 @@ public class Expediente {
     private String date;
     private String user;
     private String size;
+    private String image;
 
 
 
@@ -48,5 +49,13 @@ public class Expediente {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

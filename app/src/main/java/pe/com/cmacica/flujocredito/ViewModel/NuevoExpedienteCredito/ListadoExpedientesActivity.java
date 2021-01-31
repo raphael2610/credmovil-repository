@@ -101,6 +101,8 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             expediente.setId(i);
             expediente.setName(proceeding.getString("cObjNombre"));
             expediente.setDate(proceeding.getString("FechaCreacion"));
+            expediente.setImage(proceeding.getString("cImagen"));
+            expediente.setUser(proceeding.getString("Usuario"));
 
             proceedings.add(expediente);
 

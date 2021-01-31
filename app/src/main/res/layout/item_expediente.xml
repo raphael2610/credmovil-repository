@@ -38,6 +38,7 @@
             android:background="@android:color/darker_gray"></View>
 
         <ImageView
+            android:id="@+id/prueba"
             android:layout_width="0dp"
             android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="@id/guidelineTwo"

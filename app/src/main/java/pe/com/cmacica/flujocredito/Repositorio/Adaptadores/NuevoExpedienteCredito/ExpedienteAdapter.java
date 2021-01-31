@@ -1,11 +1,17 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,7 +22,7 @@ import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredit
 public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.ViewHolder> {
 
     private List<Expediente> _proceedingList;
-
+    private Context _context;
 
     public ExpedienteAdapter(List<Expediente> proceedingList) {
         this._proceedingList = proceedingList;
@@ -30,7 +36,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(_proceedingList.get(position));
+        holder.bind(_context, _proceedingList.get(position));
     }
 
     @Override
@@ -50,6 +56,11 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
     }
 
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        _context = recyclerView.getContext();
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -57,6 +68,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         private TextView _textDateContent;
         private TextView _textUserContent;
         private TextView _textSizeContent;
+        private ImageView _prueba;
 
 
         private ViewHolder(View itemView) {
@@ -65,6 +77,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textDateContent = (TextView) itemView.findViewById(R.id.textDateContent);
             _textUserContent = (TextView) itemView.findViewById(R.id.textUserContent);
             _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
+            _prueba = (ImageView) itemView.findViewById(R.id.prueba);
         }
 
 
@@ -77,11 +90,21 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         }
 
 
-        public void bind(Expediente expediente) {
+        public void bind(Context context, Expediente expediente) {
             _textNameFile.setText(expediente.getName());
             _textDateContent.setText(expediente.getDate());
             _textUserContent.setText(expediente.getUser());
             _textSizeContent.setText(expediente.getSize());
+
+
+            try {
+                byte[] decodedString = Base64.decode(expediente.getImage(), Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                _prueba.setImageBitmap(bitmap);
+            } catch (Exception e) {
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
         }
 
 
