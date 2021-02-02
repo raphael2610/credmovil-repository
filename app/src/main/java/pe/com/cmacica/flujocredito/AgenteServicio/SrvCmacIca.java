@@ -163,6 +163,7 @@ public class SrvCmacIca {
       public static final String GET_INFORMACION_CLIENTE = HOST_WEBAPI + "Persona/FiltroPersonaMovil?DOIPersona=%s";
       public static final String GET_LISTADO_CREDITOS = HOST_WEBAPI + "Persona/ObtenerExpedienteCredito?CodigoPersona=%s&cUser=%s";
       public static final String GET_LISTADO_EXPEDIENTES = HOST_WEBAPI + "Persona/ObtenerHistorialExpediente?cCtaCod=%s&nIdCar=%s&codCliente=%s";
+      public static final String GET_LISTADO_TIPOS_EXPEDIENTES = HOST_WEBAPI + "Persona/ListarTipos?nIdCar=%s";
       // endregion
 
 

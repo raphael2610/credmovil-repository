@@ -1,11 +1,14 @@
 package pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -38,6 +41,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
     private RecyclerView _recyclerviewFiles;
     private ExpedienteAdapter _proceedingAdapter;
     private ProgressDialog _progressDialog;
+    private FloatingActionButton _floatingactionbuttonAddExpediente;
     private Credito _credit;
     private Cliente _client;
     private int _configuration = 0;
@@ -51,6 +55,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
         _recyclerviewFiles = (RecyclerView) findViewById(R.id.recyclerviewExpedientes);
+        _floatingactionbuttonAddExpediente = (FloatingActionButton) findViewById(R.id.floatingactionbuttonAddExpediente);
 
         setupView();
 
@@ -63,6 +68,11 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         initializeAndGetInformation();
         initToolbar();
         setupRecyclerView();
+
+        _floatingactionbuttonAddExpediente.setOnClickListener(view -> {
+            navigateToAddExpedienteActivity();
+        });
+
     }
 
     private void initializeAndGetInformation() {
@@ -190,6 +200,21 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+
+    }
+
+    // endregion
+
+
+    // region navigation
+
+    private void navigateToAddExpedienteActivity() {
+
+        Intent intent = new Intent(this, AddExpedienteActivity.class);
+        intent.putExtra(AddExpedienteActivity.EXTRA_CLIENT, _client);
+        intent.putExtra(AddExpedienteActivity.EXTRA_CONFIGURATION, _configuration);
+        intent.putExtra(AddExpedienteActivity.EXTRA_CREDIT, _credit);
+        startActivity(intent);
 
     }
 
