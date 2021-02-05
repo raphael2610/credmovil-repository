@@ -1,6 +1,7 @@
 package pe.com.cmacica.flujocredito.ViewModel.ExpedienteCredito;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +27,8 @@ import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.ExpedienteCredito.ExpedienteAdapter;
 
-public class ListadoExpedientesActivity extends AppCompatActivity {
+public class ListadoExpedientesActivity extends AppCompatActivity
+                                        implements ExpedienteAdapter.ExpedienteAdapterListener {
 
     private static final String TAG = "ListadoExpedientesActiv";
 
@@ -88,7 +90,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         List<Expediente> expedienteList = new ArrayList<>();
-        _proceedingAdapter = new ExpedienteAdapter(expedienteList);
+        _proceedingAdapter = new ExpedienteAdapter(expedienteList, this);
         _recyclerviewFiles.setAdapter(_proceedingAdapter);
     }
 
@@ -104,6 +106,8 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             expediente.setId(i);
             expediente.setName(proceeding.getString("cObjNombre"));
             expediente.setDate(proceeding.getString("FechaCreacion"));
+            expediente.setImage(proceeding.getString("cImagen"));
+            expediente.setUser(proceeding.getString("Usuario"));
 
             proceedings.add(expediente);
 
@@ -115,6 +119,15 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
     // endregion
 
+
+    // region callback
+
+    @Override
+    public void onClick(Expediente expediente) {
+        navigateToExpedienteCredito(expediente);
+    }
+
+    // endregion
 
 
     // region network
@@ -146,7 +159,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             return;
         }
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, 1, personCode);
+        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, _configuration, personCode);
         Log.d("CRISTIAN", url);
 
         VolleySingleton.getInstance(this)
@@ -189,6 +202,23 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
         } catch (Exception ex) {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    // endregion
+
+    // region navigation
+
+    private void navigateToExpedienteCredito(Expediente expediente) {
+
+        try {
+            Intent intent = new Intent(this, ExpedienteActivity.class);
+            intent.putExtra(ExpedienteActivity.EXTRA_FILE, expediente);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
 

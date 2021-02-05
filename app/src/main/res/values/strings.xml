@@ -489,4 +489,6 @@
     <string name="add_expediente_msg_esperar">Espere por favor</string>
     <string name="add_expediente_msg_obtener_tipos">Obteniendo los tipos de expedientes</string>
 
+    <string name="expediente_one_title">Visualización de Expediente</string>
+
 </resources>

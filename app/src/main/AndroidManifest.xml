@@ -29,7 +29,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlujoCredito">
-        <activity android:name=".ViewModel.NuevoExpedienteCredito.ExpedienteActivity"></activity>
+        <activity android:name=".ViewModel.ExpedienteCredito.ExpedienteActivity"></activity>
+        <activity android:name=".ViewModel.NuevoExpedienteCredito.ExpedienteActivity" />
         <activity android:name=".ViewModel.NuevoExpedienteCredito.UpdateExpedienteActivity" />
         <activity android:name=".ViewModel.NuevoExpedienteCredito.ListadoExpedientesActivity" />
         <activity android:name=".ViewModel.NuevoExpedienteCredito.AddExpedienteActivity" />
@@ -79,13 +80,11 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.FlujoCredito">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ViewModel.PlanPago.ActividadDetallePlanPago"

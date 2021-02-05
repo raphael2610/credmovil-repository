@@ -155,7 +155,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             return;
         }
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, 1, personCode);
+        String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, _configuration, personCode);
         Log.d("CRISTIAN", url);
 
         VolleySingleton.getInstance(this)
