@@ -4,17 +4,20 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.util.DiffUtil;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito.ExpedienteDiffCallback;
@@ -23,9 +26,13 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
 
     private List<Expediente> _proceedingList;
     private Context _context;
+    private ExpedienteAdapterListener _expedienteAdapterListener;
 
-    public ExpedienteAdapter(List<Expediente> proceedingList) {
+
+    public ExpedienteAdapter(List<Expediente> proceedingList,
+                            ExpedienteAdapterListener expedienteAdapterListener) {
         this._proceedingList = proceedingList;
+        this._expedienteAdapterListener = expedienteAdapterListener;
     }
 
 
@@ -36,12 +43,18 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(_context, _proceedingList.get(position));
+        holder.bind(_context, _proceedingList.get(position), _expedienteAdapterListener);
     }
 
     @Override
     public int getItemCount() {
         return _proceedingList.size();
+    }
+
+
+    public interface ExpedienteAdapterListener {
+            void onUpdateFile(Expediente expediente);
+            void onDeleteFile(Expediente expediente);
     }
 
 
@@ -69,6 +82,8 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         private TextView _textUserContent;
         private TextView _textSizeContent;
         private ImageView _prueba;
+        private Button _buttonUpdate;
+        private Button _buttonDelete;
 
 
         private ViewHolder(View itemView) {
@@ -78,6 +93,8 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textUserContent = (TextView) itemView.findViewById(R.id.textUserContent);
             _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
             _prueba = (ImageView) itemView.findViewById(R.id.prueba);
+            _buttonUpdate = (Button) itemView.findViewById(R.id.buttonUpdate);
+            _buttonDelete = (Button) itemView.findViewById(R.id.buttonDelete);
         }
 
 
@@ -90,11 +107,14 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         }
 
 
-        public void bind(Context context, Expediente expediente) {
+        public void bind(Context context, Expediente expediente, ExpedienteAdapterListener expedienteAdapterListener) {
+
             _textNameFile.setText(expediente.getName());
             _textDateContent.setText(expediente.getDate());
             _textUserContent.setText(expediente.getUser());
             _textSizeContent.setText(expediente.getSize());
+            _buttonUpdate.setOnClickListener(v -> expedienteAdapterListener.onUpdateFile(expediente));
+            _buttonDelete.setOnClickListener(v -> expedienteAdapterListener.onDeleteFile(expediente));
 
 
             try {

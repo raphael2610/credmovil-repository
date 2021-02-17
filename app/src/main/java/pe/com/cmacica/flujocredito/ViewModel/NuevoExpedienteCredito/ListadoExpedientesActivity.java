@@ -28,8 +28,10 @@ import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito.ExpedienteAdapter;
+import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
 
-public class ListadoExpedientesActivity extends AppCompatActivity {
+public class ListadoExpedientesActivity extends AppCompatActivity
+                                implements ExpedienteAdapter.ExpedienteAdapterListener {
 
     private static final String TAG = "ListadoExpedientesActiv";
 
@@ -60,10 +62,17 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
         setupView();
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        searchServerFiles();
+    }
+
     // endregion
 
 
-
+    // region setupView
     private void setupView() {
         initializeAndGetInformation();
         initToolbar();
@@ -81,7 +90,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             _credit = getIntent().getParcelableExtra(EXTRA_CREDIT);
             _configuration = getIntent().getIntExtra(EXTRA_CONFIGURATION, 0);
             _client = getIntent().getParcelableExtra(EXTRA_CLIENT);
-            searchServerFiles();
+//            searchServerFiles();
         } catch (Exception e) { }
 
     }
@@ -95,7 +104,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         List<Expediente> expedienteList = new ArrayList<>();
-        _proceedingAdapter = new ExpedienteAdapter(expedienteList);
+        _proceedingAdapter = new ExpedienteAdapter(expedienteList, this);
         _recyclerviewFiles.setAdapter(_proceedingAdapter);
     }
 
@@ -108,7 +117,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             JSONObject proceeding = jsonFiles.getJSONObject(i);
 
             Expediente expediente = new Expediente();
-            expediente.setId(i);
+            expediente.setId(proceeding.getInt("nIdObj"));
             expediente.setName(proceeding.getString("cObjNombre"));
             expediente.setDate(proceeding.getString("FechaCreacion"));
             expediente.setImage(proceeding.getString("cImagen"));
@@ -122,6 +131,37 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
 
     }
 
+    // endregion
+
+
+    // region callback
+
+    @Override
+    public void onUpdateFile(Expediente expediente) {
+        navigateToUpdateExpedienteActivity(expediente);
+    }
+
+    @Override
+    public void onDeleteFile(Expediente expediente) {
+        deleteFile(expediente);
+    }
+
+
+    // endregion
+
+
+
+    // region navigation
+    private void navigateToUpdateExpedienteActivity(Expediente expediente) {
+
+        Intent intent = new Intent(this, UpdateExpedienteActivity.class);
+        intent.putExtra(UpdateExpedienteActivity.EXTRA_FILE, expediente);
+        intent.putExtra(UpdateExpedienteActivity.EXTRA_CLIENT, _client);
+        intent.putExtra(UpdateExpedienteActivity.EXTRA_CONFIGURATION, _configuration);
+        intent.putExtra(UpdateExpedienteActivity.EXTRA_CREDIT, _credit);
+        startActivity(intent);
+
+    }
     // endregion
 
 
@@ -200,6 +240,55 @@ public class ListadoExpedientesActivity extends AppCompatActivity {
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+
+    }
+
+    private void deleteFile(Expediente expediente) {
+
+
+        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_expediente_msg_esperar), getString(R.string.listado_expediente_msg_eliminar_expediente));
+
+        int idFile = expediente.getId();
+
+        String user = UPreferencias.ObtenerUserLogeo(this);
+        user = "CTMR";
+
+
+        String url = String.format(SrvCmacIca.DELETE_EXPEDIENTE, idFile, _configuration, user);
+
+        VolleySingleton.getInstance(this)
+                .addToRequestQueue(
+                        new JsonObjectRequest(
+                                Request.Method.POST,
+                                url,
+                                response -> {
+                                    responseServerDeleteFile(response);
+                                },
+                                error -> {
+                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                    _progressDialog.cancel();
+                                }
+
+                        )
+                );
+
+    }
+
+
+    private void responseServerDeleteFile(JSONObject response) {
+
+        _progressDialog.cancel();
+
+        try{
+            if(response.getBoolean("IsCorrect")){
+                Toast.makeText(this, "¡Expediente eliminado correctamente!", Toast.LENGTH_SHORT).show();
+                searchServerFiles();
+            } else {
+                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
     }
 

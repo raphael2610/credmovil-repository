@@ -165,6 +165,8 @@ public class SrvCmacIca {
       public static final String GET_LISTADO_EXPEDIENTES = HOST_WEBAPI + "Persona/ObtenerHistorialExpediente?cCtaCod=%s&nIdCar=%s&codCliente=%s";
       public static final String GET_LISTADO_TIPOS_EXPEDIENTES = HOST_WEBAPI + "Persona/ListarTipos?nIdCar=%s";
       public static final String SAVE_EXPEDIENTE = HOST_WEBAPI + "Persona/GuardarExpediente";
+      public static final String UPDATE_EXPEDIENTE = HOST_WEBAPI + "Persona/UpdateExpediente";
+      public static final String DELETE_EXPEDIENTE = HOST_WEBAPI + "Persona/DeleteExpediente?nIdObj=%s&nIdCar=%s&Usuario=%s";
       // endregion
 
 

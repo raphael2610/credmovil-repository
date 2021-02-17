@@ -473,6 +473,7 @@
     <string name="listado_expediente_title">Listado de Expedientes</string>
     <string name="listado_expediente_msg_esperar">Espere por favor</string>
     <string name="listado_expediente_msg_obtener_expedientes">Obteniendo los expedientes</string>
+    <string name="listado_expediente_msg_eliminar_expediente">Eliminando expediente</string>
     <string name="listado_expediente_error_not_proceedings">¡No se encontraron expedientes!</string>
     <string name="title_activity_configuracion_credito">ConfiguracionCreditoActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -490,5 +491,13 @@
     <string name="add_expediente_msg_obtener_tipos">Obteniendo los tipos de expedientes</string>
 
     <string name="expediente_one_title">Visualización de Expediente</string>
+
+    <string name="update_expediente_title">Actualizar Expediente</string>
+    <string name="update_expediente_error_not_types">No se encontrados tipos para los expedientes</string>
+    <string name="update_expediente_msg_esperar">Espere por favor</string>
+    <string name="update_expediente_msg_obtener_tipos">Obteniendo los tipos de expedientes</string>
+    <string name="update_expediente_msg_actualizar_expediente">Actualizando el expediente</string>
+
+
 
 </resources>

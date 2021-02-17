@@ -36,18 +36,18 @@
         android:layout_marginStart="4dp"
         android:tint="@android:color/white"
         android:padding="4dp"></ImageView>
-    <ImageView
-        android:id="@+id/appcompatimageviewAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add"
-        android:background="@drawable/bg_button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/appcompatimageviewSearch"
-        app:layout_constraintBottom_toBottomOf="@id/edittextDni"
-        android:layout_marginStart="4dp"
-        android:tint="@android:color/white"
-        android:padding="4dp"></ImageView>
+<!--    <ImageView-->
+<!--        android:id="@+id/appcompatimageviewAdd"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        android:background="@drawable/bg_button"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@id/appcompatimageviewSearch"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/edittextDni"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:tint="@android:color/white"-->
+<!--        android:padding="4dp"></ImageView>-->
     <EditText
         android:id="@+id/edittextNameAndLastname"
         android:layout_width="0dp"

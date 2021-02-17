@@ -30,7 +30,7 @@ public class ExpedienteCreditoFragment extends Fragment {
 
     private EditText _edittextDni;
     private ImageView _appcompatimageviewSearch;
-    private ImageView _appcompatimageviewAdd;
+//    private ImageView _appcompatimageviewAdd;
     private EditText _edittextNameAndLastname;
     private EditText _edittextTypePerson;
     private Button _buttonConsult;
@@ -48,7 +48,7 @@ public class ExpedienteCreditoFragment extends Fragment {
 
         _edittextDni = (EditText) view.findViewById(R.id.edittextDni);
         _appcompatimageviewSearch = (ImageView) view.findViewById(R.id.appcompatimageviewSearch);
-        _appcompatimageviewAdd = (ImageView) view.findViewById(R.id.appcompatimageviewAdd);
+//        _appcompatimageviewAdd = (ImageView) view.findViewById(R.id.appcompatimageviewAdd);
         _edittextNameAndLastname = (EditText) view.findViewById(R.id.edittextNameAndLastname);
         _edittextTypePerson = (EditText) view.findViewById(R.id.edittextTypePerson);
         _buttonConsult = (Button) view.findViewById(R.id.buttonConsult);
