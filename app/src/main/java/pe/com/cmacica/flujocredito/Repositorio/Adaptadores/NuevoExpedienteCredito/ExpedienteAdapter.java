@@ -80,7 +80,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         private TextView _textNameFile;
         private TextView _textDateContent;
         private TextView _textUserContent;
-        private TextView _textSizeContent;
+//        private TextView _textSizeContent;
         private ImageView _prueba;
         private Button _buttonUpdate;
         private Button _buttonDelete;
@@ -91,7 +91,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textNameFile = (TextView) itemView.findViewById(R.id.textNameExpediente);
             _textDateContent = (TextView) itemView.findViewById(R.id.textDateContent);
             _textUserContent = (TextView) itemView.findViewById(R.id.textUserContent);
-            _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
+//            _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
             _prueba = (ImageView) itemView.findViewById(R.id.prueba);
             _buttonUpdate = (Button) itemView.findViewById(R.id.buttonUpdate);
             _buttonDelete = (Button) itemView.findViewById(R.id.buttonDelete);
@@ -112,7 +112,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textNameFile.setText(expediente.getName());
             _textDateContent.setText(expediente.getDate());
             _textUserContent.setText(expediente.getUser());
-            _textSizeContent.setText(expediente.getSize());
+//            _textSizeContent.setText(expediente.getSize());
             _buttonUpdate.setOnClickListener(v -> expedienteAdapterListener.onUpdateFile(expediente));
             _buttonDelete.setOnClickListener(v -> expedienteAdapterListener.onDeleteFile(expediente));
 

@@ -69,7 +69,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
         private TextView _textNameFile;
         private TextView _textDateContent;
         private TextView _textUserContent;
-        private TextView _textSizeContent;
+//        private TextView _textSizeContent;
 
 
         private ViewHolder(View itemView) {
@@ -78,7 +78,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textNameFile = (TextView) itemView.findViewById(R.id.textNameFile);
             _textDateContent = (TextView) itemView.findViewById(R.id.textDateContent);
             _textUserContent = (TextView) itemView.findViewById(R.id.textUserContent);
-            _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
+//            _textSizeContent = (TextView) itemView.findViewById(R.id.textSizeContent);
         }
 
 
@@ -98,7 +98,7 @@ public class ExpedienteAdapter extends RecyclerView.Adapter<ExpedienteAdapter.Vi
             _textNameFile.setText(expediente.getName());
             _textDateContent.setText(expediente.getDate());
             _textUserContent.setText(expediente.getUser());
-            _textSizeContent.setText(expediente.getSize());
+//            _textSizeContent.setText(expediente.getSize());
         }
 
 

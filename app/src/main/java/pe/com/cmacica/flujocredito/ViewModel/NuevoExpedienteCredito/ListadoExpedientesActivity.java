@@ -1,6 +1,8 @@
 package pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -143,7 +145,16 @@ public class ListadoExpedientesActivity extends AppCompatActivity
 
     @Override
     public void onDeleteFile(Expediente expediente) {
-        deleteFile(expediente);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("¿Desea eliminar este elemento?");
+        builder.setPositiveButton("SI", (dialog, which) -> deleteFile(expediente));
+        builder.setNegativeButton("NO", (dialog, which) -> dialog.cancel());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
     }
 
 

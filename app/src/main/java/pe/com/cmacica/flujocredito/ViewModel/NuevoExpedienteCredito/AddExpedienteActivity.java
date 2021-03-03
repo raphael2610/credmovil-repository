@@ -222,7 +222,7 @@ public class AddExpedienteActivity extends AppCompatActivity {
             String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
 
             String user = UPreferencias.ObtenerUserLogeo(this);
-            user = "CTMR";
+            user = "ERMN";
 
             TipoExpediente tipoExpediente = (TipoExpediente) (_spinnerType.getSelectedItem());
 
