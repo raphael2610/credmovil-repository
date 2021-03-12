@@ -159,7 +159,7 @@ public class ListadoCreditosActivity extends AppCompatActivity
         }
 
 
-        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
+        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS_SIN_FICTICIO, _client.getPersonCode(), user);
         String hola = "devCristian";
 
         VolleySingleton.getInstance(this)

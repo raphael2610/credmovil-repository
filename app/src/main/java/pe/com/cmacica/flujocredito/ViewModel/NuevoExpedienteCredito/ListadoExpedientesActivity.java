@@ -4,11 +4,14 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -20,14 +23,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import pe.com.cmacica.flujocredito.AgenteServicio.RESTService;
 import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
 import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
+import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.TipoExpediente;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito.ExpedienteAdapter;
 import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
@@ -140,7 +147,16 @@ public class ListadoExpedientesActivity extends AppCompatActivity
 
     @Override
     public void onUpdateFile(Expediente expediente) {
-        navigateToUpdateExpedienteActivity(expediente);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("¿Desea actualizar este elemento?");
+        builder.setPositiveButton("SI", (dialog, which) ->  navigateToUpdateExpedienteActivity(expediente));
+        builder.setNegativeButton("NO", (dialog, which) -> dialog.cancel());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
     }
 
     @Override
@@ -258,30 +274,41 @@ public class ListadoExpedientesActivity extends AppCompatActivity
 
 
         _progressDialog = ProgressDialog.show(this, getString(R.string.listado_expediente_msg_esperar), getString(R.string.listado_expediente_msg_eliminar_expediente));
+        try {
 
-        int idFile = expediente.getId();
+            int idFile = expediente.getId();
 
-        String user = UPreferencias.ObtenerUserLogeo(this);
-        user = "CTMR";
+            String user = UPreferencias.ObtenerUserLogeo(this);
+            user = "ERMN";
+
+            JSONObject json = new JSONObject();
+
+            json.put("nIdObj", idFile);
+            json.put("Usuario", user);
 
 
-        String url = String.format(SrvCmacIca.DELETE_EXPEDIENTE, idFile, _configuration, user);
+            HashMap<String, String> cabeceras = new HashMap<>();
 
-        VolleySingleton.getInstance(this)
-                .addToRequestQueue(
-                        new JsonObjectRequest(
-                                Request.Method.POST,
-                                url,
-                                response -> {
-                                    responseServerDeleteFile(response);
-                                },
-                                error -> {
-                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                    _progressDialog.cancel();
-                                }
+            new RESTService(this).post(
+                    SrvCmacIca.DELETE_EXPEDIENTE,
+                    json.toString(),
+                    response ->responseServerDeleteFile(response),
+                    error -> {
+                        _progressDialog.cancel();
+                        Toast.makeText(this, "Error: " + error.toString(), Toast.LENGTH_LONG).show();
+                    },
+                    cabeceras
+            );
 
-                        )
-                );
+        } catch (Exception e) {
+            _progressDialog.cancel();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
 
     }
 

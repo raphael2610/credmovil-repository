@@ -160,13 +160,15 @@ public class SrvCmacIca {
 
 
       // region ExpedienteCredito
-      public static final String GET_INFORMACION_CLIENTE = HOST_WEBAPI + "Persona/FiltroPersonaMovil?DOIPersona=%s";
-      public static final String GET_LISTADO_CREDITOS = HOST_WEBAPI + "Persona/ObtenerExpedienteCredito?CodigoPersona=%s&cUser=%s";
-      public static final String GET_LISTADO_EXPEDIENTES = HOST_WEBAPI + "Persona/ObtenerHistorialExpediente?cCtaCod=%s&nIdCar=%s&codCliente=%s";
-      public static final String GET_LISTADO_TIPOS_EXPEDIENTES = HOST_WEBAPI + "Persona/ListarTipos?nIdCar=%s";
-      public static final String SAVE_EXPEDIENTE = HOST_WEBAPI + "Persona/GuardarExpediente";
-      public static final String UPDATE_EXPEDIENTE = HOST_WEBAPI + "Persona/UpdateExpediente";
-      public static final String DELETE_EXPEDIENTE = HOST_WEBAPI + "Persona/DeleteExpediente?nIdObj=%s&nIdCar=%s&Usuario=%s";
+      public static final String GET_INFORMACION_CLIENTE = HOST_WEBAPI + "Digitalizacion/FiltroPersonaMovil?DOIPersona=%s";
+      public static final String GET_LISTADO_CREDITOS = HOST_WEBAPI + "Digitalizacion/ObtenerExpedienteCredito?CodigoPersona=%s&cUser=%s";
+      public static final String GET_LISTADO_CREDITOS_SIN_FICTICIO = HOST_WEBAPI + "Digitalizacion/ObtenerExpedienteCreditoSinFicticio?CodigoPersona=%s&cUser=%s";
+      public static final String GET_LISTADO_EXPEDIENTES = HOST_WEBAPI + "Digitalizacion/ObtenerHistorialExpediente?cCtaCod=%s&nIdCar=%s&codCliente=%s";
+      public static final String GET_LISTADO_TIPOS_EXPEDIENTES = HOST_WEBAPI + "Digitalizacion/ListarTipos?nIdCar=%s";
+      public static final String SAVE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/GuardarExpediente";
+      public static final String UPDATE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/UpdateExpediente";
+      public static final String DELETE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/DeleteExpediente?nIdObj=%s&Usuario=%s";
+      public static final String CREATE_CREDIT_FICTIONAL = HOST_WEBAPI + "Digitalizacion/Crearcredfic?Operacion=1&cPersCod=%s";
       // endregion
 
 

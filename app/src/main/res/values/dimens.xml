@@ -24,6 +24,9 @@
     <dimen name="Size_EditText_SubTotal">25dp</dimen>
     <dimen name="Size_EditText_Total">30dp</dimen>
 
+    <dimen name="ancho_EditText_Icon">120dp</dimen>
+    <dimen name="ancho_EditText_Date">120dp</dimen>
+
     <dimen name="ancho_text_elemntocalendario">12dp</dimen>
 
 </resources>

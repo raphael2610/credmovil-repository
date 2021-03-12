@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-            android:text="Expediente"
+            android:text="EXPEDIENTE"
             android:textColor="@android:color/black"
             android:textSize="14sp"></TextView>
         <View
@@ -61,7 +61,7 @@
             android:id="@+id/appcompattextviewNroCredit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Nro. Crédito"
+            android:text="Nro.de Crédito"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/appcompatviewProceedings"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@id/appcompattextviewNamberContent"
             app:layout_constraintStart_toStartOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
-            android:text="Tipo Credito"
+            android:text="Tipo de Crédito"
             android:textColor="#737476"
             android:textSize="10sp"
             android:layout_marginTop="16sp"></TextView>

@@ -1,5 +1,6 @@
 package pe.com.cmacica.flujocredito.ViewModel.ExpedienteCredito;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Parcelable;
@@ -7,16 +8,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.NavigableMap;
 
+import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
+import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.R;
+import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
 import pe.com.cmacica.flujocredito.ViewModel.Digitacion.FragmentoIgrFueraNegDet;
 
 public class ConfiguracionCreditoActivity extends AppCompatActivity {
@@ -48,6 +59,15 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
     private ImageView _imageviewCommittee;
     private TextView _textviewCommittee;
 
+    private ImageView _imageviewicon;
+    private TextView _textviewicon;
+    private EditText _txtanalist;
+    private TextView _textviewfecha;
+    private EditText _txtfecha;
+
+    private ProgressDialog _progressDialog;
+
+
 
 
     // region lifecycle
@@ -55,7 +75,7 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracion_credito);
+        setContentView(R.layout.activity_configuration_credito2);
 
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -83,6 +103,14 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
         _imageviewCommittee = (ImageView) findViewById(R.id.imageviewCommittee);
         _textviewCommittee = (TextView) findViewById(R.id.textviewCommittee);
 
+        _imageviewicon = (ImageView) findViewById(R.id.imageviewicon);
+        _textviewicon = (TextView) findViewById(R.id.textviewicon);
+        _txtanalist = (EditText) findViewById(R.id.txtanalist);
+
+        _textviewfecha = (TextView) findViewById(R.id.textviewfecha);
+        _txtfecha = (EditText) findViewById(R.id.txtfecha);
+
+
         initializeInformation();
         setupView();
     }
@@ -95,6 +123,8 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
 
     private void setupView() {
         initToolbar();
+
+        showAudit();
 
         _cardviewPersonalInformation.setOnClickListener(view -> navigationToListadoExpedientes(1));
         _imageviewPersonalInformation.setOnClickListener(view -> navigationToListadoExpedientes(1));
@@ -150,6 +180,76 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
         intent.putExtra(ListadoExpedientesActivity.EXTRA_CONFIGURATION, configuration);
         intent.putExtra(ListadoExpedientesActivity.EXTRA_CLIENT, _client);
         startActivity(intent);
+
+    }
+
+    // endregion
+
+
+    // region network
+
+
+    private void showAudit() {
+
+        String personCode = _client.getPersonCode();
+        String user = UPreferencias.ObtenerUserLogeo(getApplicationContext());
+        // TODO dinamico user
+        user = "ERMM";
+
+        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
+
+
+        if (personCode.equals("")) {
+            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            _progressDialog.cancel();
+            return;
+        }
+
+
+        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
+        String hola = "devCristian";
+
+        VolleySingleton.getInstance(this)
+                .addToRequestQueue(
+                        new JsonObjectRequest(
+                                Request.Method.GET,
+                                url,
+                                response -> {
+                                    responseAudit(response);
+                                },
+                                error -> {
+                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+
+                        )
+                );
+
+    }
+
+
+    private void responseAudit(JSONObject response) {
+
+        _progressDialog.cancel();
+
+        try {
+
+            if (response.getBoolean("IsCorrect")) {
+
+                JSONObject data = response.getJSONObject("Data");
+                String userAudit = data.getString("cUserAudit");
+                String auditDate = data.getString("dFechaAudit");
+
+                _txtanalist.setText(userAudit);
+                _txtfecha.setText(auditDate);
+
+
+            } else {
+                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
+            }
+
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
     }
 

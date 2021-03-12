@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -39,6 +40,7 @@ public class ListadoCreditosActivity extends AppCompatActivity
     private RecyclerView _recyclerviewCredits;
     private CreditoAdapter _creditoAdapter;
     private ProgressDialog _progressDialog;
+    private Button _buttonCreateCreditFictional;
 
 
     // region lifecycle
@@ -46,9 +48,10 @@ public class ListadoCreditosActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_creditos);
+        setContentView(R.layout.activity_listado_creditos2);
 
         _toolbar = (Toolbar) findViewById(R.id.toolbar);
+        _buttonCreateCreditFictional = (Button) findViewById(R.id.buttonCreateCreditFictional);
         _recyclerviewCredits = (RecyclerView) findViewById(R.id.recyclerviewCredits) ;
 
         initializeAndGetInformation();
@@ -64,6 +67,9 @@ public class ListadoCreditosActivity extends AppCompatActivity
     private void setupView() {
         initToolbar();
         setupRecyclerView();
+        _buttonCreateCreditFictional.setOnClickListener(view -> {
+            createCreditFictional();
+        });
     }
 
     private void initializeAndGetInformation() {
@@ -204,6 +210,50 @@ public class ListadoCreditosActivity extends AppCompatActivity
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
         }
 
+
+    }
+
+    private void createCreditFictional() {
+
+        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_expediente_msg_esperar), "Creando Credito Fictisio");
+
+        String personCode = _client.getPersonCode();
+
+        String url = String.format(SrvCmacIca.CREATE_CREDIT_FICTIONAL, personCode);
+
+        VolleySingleton.getInstance(this)
+                .addToRequestQueue(
+                        new JsonObjectRequest(
+                                Request.Method.POST,
+                                url,
+                                response -> {
+                                    responseServerCreateCreditFictional(response);
+                                },
+                                error -> {
+                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                    _progressDialog.cancel();
+                                }
+
+                        )
+                );
+
+
+    }
+
+    private void responseServerCreateCreditFictional(JSONObject response) {
+
+        _progressDialog.cancel();
+
+        try{
+            if(response.getBoolean("IsCorrect")){
+                Toast.makeText(this, "¡Creación de Credito Fictisio correctamente!", Toast.LENGTH_SHORT).show();
+                searchServerCredits();
+            } else {
+                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception ex) {
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
     }
 
