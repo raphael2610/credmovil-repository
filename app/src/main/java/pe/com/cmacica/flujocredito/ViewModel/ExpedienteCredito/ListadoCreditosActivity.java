@@ -106,6 +106,8 @@ public class ListadoCreditosActivity extends AppCompatActivity
             credito.setRefundDate(credit.getString("dSolicitado"));
             credito.setState(credit.getString("cEstadoDesc"));
             credito.setAmount(credit.getString("nPrestamo"));
+            credito.setUserAudit(credit.getString("cUserAudit"));
+            credito.setDateAudit(credit.getString("dFechaAudit"));
             credits.add(credito);
 
         }

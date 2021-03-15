@@ -124,7 +124,7 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
     private void setupView() {
         initToolbar();
 
-        showAudit();
+//        showAudit();
 
         _cardviewPersonalInformation.setOnClickListener(view -> navigationToListadoExpedientes(1));
         _imageviewPersonalInformation.setOnClickListener(view -> navigationToListadoExpedientes(1));
@@ -164,6 +164,10 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
         try {
             _credit = getIntent().getParcelableExtra(EXTRA_CREDIT);
             _client = getIntent().getParcelableExtra(EXTRA_CLIENT);
+
+            _txtanalist.setText(_credit.getUserAudit());
+            _txtfecha.setText(_credit.getDateAudit());
+
         } catch (Exception e) {}
 
     }
@@ -189,69 +193,74 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
     // region network
 
 
-    private void showAudit() {
-
-        String personCode = _client.getPersonCode();
-        String user = UPreferencias.ObtenerUserLogeo(getApplicationContext());
-        // TODO dinamico user
-        user = "ERMM";
-
-        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
-
-
-        if (personCode.equals("")) {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-            _progressDialog.cancel();
-            return;
-        }
-
-
-        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
-        String hola = "devCristian";
-
-        VolleySingleton.getInstance(this)
-                .addToRequestQueue(
-                        new JsonObjectRequest(
-                                Request.Method.GET,
-                                url,
-                                response -> {
-                                    responseAudit(response);
-                                },
-                                error -> {
-                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-
-                        )
-                );
-
-    }
-
-
-    private void responseAudit(JSONObject response) {
-
-        _progressDialog.cancel();
-
-        try {
-
-            if (response.getBoolean("IsCorrect")) {
-
-                JSONObject data = response.getJSONObject("Data");
-                String userAudit = data.getString("cUserAudit");
-                String auditDate = data.getString("dFechaAudit");
-
-                _txtanalist.setText(userAudit);
-                _txtfecha.setText(auditDate);
-
-
-            } else {
-                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
-            }
-
-        } catch (Exception ex) {
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
-    }
+//    private void showAudit() {
+//
+//        String personCode = _client.getPersonCode();
+//        String user = UPreferencias.ObtenerUserLogeo(getApplicationContext());
+//        // TODO dinamico user
+//        user = "ERMM";
+//
+//        _progressDialog = ProgressDialog.show(this, getString(R.string.listado_creditos_msg_esperar), getString(R.string.listado_creditos_msg_obtener_creditos));
+//
+//
+//        if (personCode.equals("")) {
+//            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+//            _progressDialog.cancel();
+//            return;
+//        }
+//
+//
+//        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
+//        String hola = "devCristian";
+//
+//        VolleySingleton.getInstance(this)
+//                .addToRequestQueue(
+//                        new JsonObjectRequest(
+//                                Request.Method.GET,
+//                                url,
+//                                response -> {
+//                                    responseAudit(response);
+//                                },
+//                                error -> {
+//                                    Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                        )
+//                );
+//
+//    }
+//
+//
+//    private void responseAudit(JSONObject response) {
+//
+//        _progressDialog.cancel();
+//
+//        try {
+//
+//            if (response.getBoolean("IsCorrect")) {
+//
+//                JSONObject data = response.getJSONObject("Data");
+//                JSONArray expedientesCreditos = data.getJSONArray("ExpedienteCredito");
+//
+//                if (expedientesCreditos.length() >= 1) {
+//
+//                    JSONObject expedienteCredito = expedientesCreditos.getJSONObject(0);
+//                    String userAudit = expedienteCredito.getString("cUserAudit");
+//                    String auditDate = expedienteCredito.getString("dFechaAudit");
+//
+//                    _txtanalist.setText(userAudit);
+//                    _txtfecha.setText(auditDate);
+//                }
+//
+//            } else {
+//                Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();
+//            }
+//
+//        } catch (Exception ex) {
+//            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
+//        }
+//
+//    }
 
     // endregion
 

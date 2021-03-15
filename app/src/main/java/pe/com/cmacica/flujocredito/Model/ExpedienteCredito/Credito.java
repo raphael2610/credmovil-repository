@@ -12,6 +12,8 @@ public class Credito implements Parcelable {
     private String refundDate;
     private String state;
     private String amount;
+    private String userAudit;
+    private String dateAudit;
 
     public Credito() {}
 
@@ -23,6 +25,8 @@ public class Credito implements Parcelable {
         refundDate = in.readString();
         state = in.readString();
         amount = in.readString();
+        userAudit = in.readString();
+        dateAudit = in.readString();
     }
 
     public static final Creator<Credito> CREATOR = new Creator<Credito>() {
@@ -93,6 +97,22 @@ public class Credito implements Parcelable {
         this.amount = amount;
     }
 
+    public String getUserAudit() {
+        return userAudit;
+    }
+
+    public void setUserAudit(String userAudit) {
+        this.userAudit = userAudit;
+    }
+
+    public String getDateAudit() {
+        return dateAudit;
+    }
+
+    public void setDateAudit(String dateAudit) {
+        this.dateAudit = dateAudit;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -107,5 +127,7 @@ public class Credito implements Parcelable {
         parcel.writeString(refundDate);
         parcel.writeString(state);
         parcel.writeString(amount);
+        parcel.writeString(userAudit);
+        parcel.writeString(dateAudit);
     }
 }
