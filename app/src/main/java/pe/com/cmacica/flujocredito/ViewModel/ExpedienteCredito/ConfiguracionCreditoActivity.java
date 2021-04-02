@@ -211,7 +211,7 @@ public class ConfiguracionCreditoActivity extends AppCompatActivity {
 //
 //
 //        String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
-//        String hola = "devCristian";
+//        String hola = "devRaphael";
 //
 //        VolleySingleton.getInstance(this)
 //                .addToRequestQueue(

@@ -41,6 +41,7 @@
         <activity android:name=".ViewModel.ExpedienteCredito.ListadoExpedientesActivity" />
         <activity android:name=".ViewModel.ExpedienteCredito.ListadoCreditosActivity" />
         <activity android:name=".ViewModel.ExpedienteCredito.ConfiguracionCreditoActivity" />
+
         <activity android:name=".ViewModel.AgendaComercial.RegistroResultadoActivity" />
         <activity android:name=".ViewModel.AgendaComercial.RegistroReferidoActivity" />
         <activity android:name=".ViewModel.AgendaComercial.OfertasClienteActivity" />

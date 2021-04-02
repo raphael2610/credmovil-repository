@@ -198,7 +198,7 @@ public class UpdateExpedienteActivity extends AppCompatActivity {
 
         try{
             if(response.getBoolean("IsCorrect")){
-                Toast.makeText(this, "¡Expediente actualizado correctamente!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "¡Documento actualizado correctamente!", Toast.LENGTH_SHORT).show();
                 finish();
             } else {
                 Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();

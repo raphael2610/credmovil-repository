@@ -165,7 +165,7 @@ public class ListadoCreditosActivity extends AppCompatActivity
 
 
         String url = String.format(SrvCmacIca.GET_LISTADO_CREDITOS, _client.getPersonCode(), user);
-        String hola = "devCristian";
+        String hola = "devRaphael";
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
@@ -219,7 +219,11 @@ public class ListadoCreditosActivity extends AppCompatActivity
 
         String personCode = _client.getPersonCode();
 
-        String url = String.format(SrvCmacIca.CREATE_CREDIT_FICTIONAL, personCode);
+        String user = UPreferencias.ObtenerUserLogeo(getApplicationContext());
+        // TODO dinamico user
+        user = "ERMM";
+
+        String url = String.format(SrvCmacIca.CREATE_CREDIT_FICTIONAL, personCode, user);
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
@@ -246,7 +250,7 @@ public class ListadoCreditosActivity extends AppCompatActivity
 
         try{
             if(response.getBoolean("IsCorrect")){
-                Toast.makeText(this, "¡Creación de Credito Fictisio correctamente!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "¡Creación de Credito Ficticio correctamente!", Toast.LENGTH_SHORT).show();
                 searchServerCredits();
             } else {
                 Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();

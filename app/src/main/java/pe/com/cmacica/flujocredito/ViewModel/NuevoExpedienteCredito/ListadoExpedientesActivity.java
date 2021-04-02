@@ -149,7 +149,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
     public void onUpdateFile(Expediente expediente) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("¿Desea actualizar este elemento?");
+        builder.setMessage("¿Desea actualizar este documento?");
         builder.setPositiveButton("SI", (dialog, which) ->  navigateToUpdateExpedienteActivity(expediente));
         builder.setNegativeButton("NO", (dialog, which) -> dialog.cancel());
 
@@ -164,7 +164,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("¿Desea eliminar este elemento?");
+        builder.setMessage("¿Desea eliminar este documento?");
         builder.setPositiveButton("SI", (dialog, which) -> deleteFile(expediente));
         builder.setNegativeButton("NO", (dialog, which) -> dialog.cancel());
 
@@ -223,7 +223,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
         }
 
         String url = String.format(SrvCmacIca.GET_LISTADO_EXPEDIENTES, account, _configuration, personCode);
-        Log.d("CRISTIAN", url);
+        Log.d("RAPHAEL", url);
 
         VolleySingleton.getInstance(this)
                 .addToRequestQueue(
@@ -319,7 +319,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
 
         try{
             if(response.getBoolean("IsCorrect")){
-                Toast.makeText(this, "¡Expediente eliminado correctamente!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "¡Documento eliminado correctamente!", Toast.LENGTH_SHORT).show();
                 searchServerFiles();
             } else {
                 Toast.makeText(this, response.getString("Message"), Toast.LENGTH_LONG).show();

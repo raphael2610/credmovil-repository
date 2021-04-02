@@ -168,7 +168,7 @@ public class SrvCmacIca {
       public static final String SAVE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/GuardarExpediente";
       public static final String UPDATE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/UpdateExpediente";
       public static final String DELETE_EXPEDIENTE = HOST_WEBAPI + "Digitalizacion/DeleteExpediente?nIdObj=%s&Usuario=%s";
-      public static final String CREATE_CREDIT_FICTIONAL = HOST_WEBAPI + "Digitalizacion/Crearcredfic?Operacion=1&cPersCod=%s";
+      public static final String CREATE_CREDIT_FICTIONAL = HOST_WEBAPI + "Digitalizacion/Crearcredfic?Operacion=1&cPersCod=%s&cuser=%s";
       // endregion
 
 
