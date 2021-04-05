@@ -15,7 +15,7 @@
             android:orientation="vertical"
             android:layout_margin="5dp">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 app:contentPadding="16dp"
@@ -58,7 +58,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/enter_radio2" />
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -72,9 +72,9 @@
                             android:textSize="14sp"
                             android:textColor="@color/TextPrimary"
                             android:hint="@string/radio" />
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.v7.widget.AppCompatButton
+                    <Button
                         android:id="@+id/btnDownloadClientes"
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
@@ -87,9 +87,9 @@
                         android:text="@string/dowload"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 app:contentPadding="16dp"
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/load_clients_hint" />
 
-                    <android.support.v7.widget.AppCompatButton
+                    <Button
                         android:id="@+id/btnLoadClientes"
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
@@ -137,7 +137,7 @@
                         android:text="@string/load"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

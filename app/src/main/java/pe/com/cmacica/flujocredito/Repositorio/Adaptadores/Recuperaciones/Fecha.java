@@ -1,13 +1,11 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.Recuperaciones;
 
-import android.app.Activity;
+
 import android.app.DatePickerDialog;
-import android.content.Context;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.DatePicker;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import pe.com.cmacica.flujocredito.Utilitarios.Dialogos.DateDialog;
 

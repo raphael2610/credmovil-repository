@@ -5,11 +5,6 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +15,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ import pe.com.cmacica.flujocredito.Utilitarios.UGeneral;
 import pe.com.cmacica.flujocredito.ViewModel.General.ActividadBusquedaPersona;
 
 
-public class FragmentoDatosClienteFteIgrDep extends Fragment  {
+public class FragmentoDatosClienteFteIgrDep extends Fragment {
 
     private static final String TAG = FragmentoDatosClienteFteIgrDep.class.getSimpleName();
 

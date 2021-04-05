@@ -4,17 +4,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 import pe.com.cmacica.flujocredito.Model.Recuperaciones.ClienteRecuperacionModel;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.Recuperaciones.AdaptadorProgramacion;
-import pe.com.cmacica.flujocredito.Utilitarios.DecoracionLineaDivisoria;
 
 public class ActividadProgramacionRecuperaciones extends AppCompatActivity {
     private static final String TAG = ActividadProgramacionRecuperaciones.class.getSimpleName();

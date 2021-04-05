@@ -1,22 +1,19 @@
 package pe.com.cmacica.flujocredito.Utilitarios.carteraanalista;
 
-import android.content.ComponentName;
-import android.content.ContentProviderClient;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.NfcAdapter;
 import android.provider.BaseColumns;
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.security.cert.CRLException;
 import java.util.ArrayList;
 import java.util.List;
 

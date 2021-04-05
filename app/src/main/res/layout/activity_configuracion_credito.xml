@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ViewModel.ExpedienteCredito.ConfiguracionCreditoActivity">
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp"></android.support.constraint.Guideline>
+            app:layout_constraintGuide_begin="16dp"></androidx.constraintlayout.widget.Guideline>
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="56dp"></android.support.constraint.Guideline>
+            app:layout_constraintGuide_begin="56dp"></androidx.constraintlayout.widget.Guideline>
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="16dp"></android.support.constraint.Guideline>
+            app:layout_constraintGuide_end="16dp"></androidx.constraintlayout.widget.Guideline>
 
 
         <include
             layout="@layout/toolbar"></include>
 
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewPersonalInformation"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -50,7 +50,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"
-                android:elevation="10dp"></View></android.support.v7.widget.CardView>
+                android:elevation="10dp"></View></androidx.cardview.widget.CardView>
 
 
         <ImageView
@@ -77,7 +77,7 @@
             android:elevation="10dp"
             android:text="Datos Personales"></TextView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewEvaluation"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -91,7 +91,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"></View>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/imageviewEvaluation"
@@ -117,7 +117,7 @@
             android:elevation="10dp"
             android:text="Evaluación"></TextView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewWarranty"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -131,7 +131,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"></View>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/imageviewWarranty"
@@ -158,7 +158,7 @@
             android:paddingBottom="16dp"
             android:text="Garantía"></TextView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewVisit"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -172,7 +172,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"></View>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/imageviewVisit"
@@ -198,7 +198,7 @@
             android:elevation="10dp"
             android:text="Visita"></TextView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewInvestmentPlan"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -212,7 +212,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"></View>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/imageviewInvestmentPlan"
@@ -238,7 +238,7 @@
             android:paddingBottom="16dp"
             android:elevation="10dp"
             android:text="Plan de Inversión"></TextView>
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardviewCommittee"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -252,7 +252,7 @@
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
                 android:background="#C62828"></View>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/imageviewCommittee"
@@ -278,5 +278,5 @@
             android:text="Acta de comité"
             android:layout_marginTop="16dp"></TextView>
 
-    </android.support.constraint.ConstraintLayout>
-</android.support.v4.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

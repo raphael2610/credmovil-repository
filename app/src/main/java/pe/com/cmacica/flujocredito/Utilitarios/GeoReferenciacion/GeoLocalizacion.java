@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import java.util.List;
 import android.content.Context;
+
+import androidx.core.app.ActivityCompat;
+
 import pe.com.cmacica.flujocredito.Model.GeoReferenciacion.LocalizacionModel;
 
 /**

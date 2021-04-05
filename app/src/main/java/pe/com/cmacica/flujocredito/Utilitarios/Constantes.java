@@ -77,4 +77,10 @@ public class Constantes {
     public static final int TYPE_CONTACT_FACE_FACE = 1;
     public static final int TYPE_CONTACT_CALL = 2;
 
+    /**
+     * Nuevo Expediente Credito
+     */
+    public static final String SHARED_PREF_NUEVO_EXPEDIENTE_CREDITO = "nuevo_expediente_credito";
+    public static final String PREF_IMAGE_SERVER = "image_nec";
+
 }

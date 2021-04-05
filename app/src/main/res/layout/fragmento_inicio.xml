@@ -54,7 +54,7 @@
         android:orientation="horizontal"
         android:id="@+id/llbusqueda">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_Doi"
             android:layout_weight="1"
             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                 android:inputType='number'
                 android:layout_marginRight="4dp"
                 android:layout_weight="1" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- FAB -->
 
@@ -107,7 +107,7 @@
             android:text="@string/etiqueta_info_usuario"
             android:textAppearance="?android:attr/textAppearanceSmall" />-->
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -136,7 +136,7 @@
                 android:layout_below="@+id/lblTituloFteIgr"
                 android:layout_marginBottom="@dimen/padding_between"
                 android:background="@color/ColorSentinel" />
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvInfoEstandar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
 
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvInfoSBS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -314,7 +314,7 @@
 
 
             </LinearLayout>
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvInfoLinCred"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -397,7 +397,7 @@
             </LinearLayout>
 
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvInfoDeuVenc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -598,7 +598,7 @@
                 android:layout_marginBottom="@dimen/padding_between"
                 android:background="@color/colorPrimary" />
             <!-- Recycler -->
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCalif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -621,7 +621,7 @@
                 android:layout_marginBottom="@dimen/padding_between"
                 android:background="@color/colorPrimary" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCredVigente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -645,7 +645,7 @@
                 android:layout_marginBottom="@dimen/padding_between"
                 android:background="@color/colorPrimary" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvreglasnegocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -655,6 +655,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito;
 
-import android.support.v7.util.DiffUtil;
+
+
+import androidx.recyclerview.widget.DiffUtil;
 
 import java.util.List;
 

@@ -1,7 +1,9 @@
 package pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import pe.com.cmacica.flujocredito.R;
 

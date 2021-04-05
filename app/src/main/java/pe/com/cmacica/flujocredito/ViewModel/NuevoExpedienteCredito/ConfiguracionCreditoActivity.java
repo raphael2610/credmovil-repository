@@ -2,19 +2,19 @@ package pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito.ListadoExpedientesActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ConfiguracionCreditoActivity extends AppCompatActivity {
 

@@ -4,14 +4,19 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import androidx.work.BackoffPolicy;
+import androidx.work.Constraints;
+import androidx.work.Data;
+import androidx.work.NetworkType;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
+
 import android.util.Base64;
-import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,17 +34,18 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import pe.com.cmacica.flujocredito.AgenteServicio.RESTService;
 import pe.com.cmacica.flujocredito.AgenteServicio.SrvCmacIca;
 import pe.com.cmacica.flujocredito.AgenteServicio.VolleySingleton;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
-import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Expediente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.TipoExpediente;
-import pe.com.cmacica.flujocredito.Model.carteraanalista.TipoDireccion;
 import pe.com.cmacica.flujocredito.R;
+import pe.com.cmacica.flujocredito.Utilitarios.Constantes;
 import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
+import pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito.Manager.UploadImageWorker;
 
 public class AddExpedienteActivity extends AppCompatActivity {
 
@@ -225,28 +231,65 @@ public class AddExpedienteActivity extends AppCompatActivity {
             user = "ERMN";
 
             TipoExpediente tipoExpediente = (TipoExpediente) (_spinnerType.getSelectedItem());
+            int tipoCodigo = tipoExpediente.getCodeType();
 
-            JSONObject json = new JSONObject();
+//            JSONObject json = new JSONObject();
+//
+//            json.put("nIdCar", _configuration);
+//            json.put("cPerscod", codigoCliente);
+//            json.put("cCtaCod", codigoCuenta);
+//            json.put("ccImagen", imageString);
+//            json.put("Usuario", user);
+//            json.put("cTipoCod", tipoExpediente.getCodeType());
+//
+//            HashMap<String, String> cabeceras = new HashMap<>();
+//
+//            new RESTService(this).post(
+//                    SrvCmacIca.SAVE_EXPEDIENTE,
+//                    json.toString(),
+//                    response -> responseServerAddFile(response),
+//                    error -> {
+//                        _progressDialog.cancel();
+//                        Toast.makeText(this, "Error: " + error.toString(), Toast.LENGTH_LONG).show();
+//                    },
+//                    cabeceras
+//            );
 
-            json.put("nIdCar", _configuration);
-            json.put("cPerscod", codigoCliente);
-            json.put("cCtaCod", codigoCuenta);
-            json.put("ccImagen", imageString);
-            json.put("Usuario", user);
-            json.put("cTipoCod", tipoExpediente.getCodeType());
+            Constraints uploadImageConstraint = new Constraints.Builder()
+                    .setRequiresBatteryNotLow(true)
+                    .setRequiredNetworkType(NetworkType.CONNECTED)
+                    .build();
 
-            HashMap<String, String> cabeceras = new HashMap<>();
+            Data uploadImageData = new Data.Builder()
+                    .putInt("idCar", _configuration)
+                    .putString("codigoCliente", codigoCliente)
+                    .putString("codigoCuenta", codigoCuenta)
+//                    .putString("image", imageString)
+                    .putString("user", user)
+                    .putInt("tipoCodigo", tipoCodigo)
+                    .build();
 
-            new RESTService(this).post(
-                    SrvCmacIca.SAVE_EXPEDIENTE,
-                    json.toString(),
-                    response -> responseServerAddFile(response),
-                    error -> {
-                        _progressDialog.cancel();
-                        Toast.makeText(this, "Error: " + error.toString(), Toast.LENGTH_LONG).show();
-                    },
-                    cabeceras
-            );
+            getSharedPreferences(Constantes.SHARED_PREF_NUEVO_EXPEDIENTE_CREDITO, MODE_PRIVATE)
+                        .edit()
+                        .putString(Constantes.PREF_IMAGE_SERVER, imageString)
+                        .commit();
+
+            WorkRequest uploadImageWorkRequest =
+                    new OneTimeWorkRequest.Builder(UploadImageWorker.class)
+                            .setBackoffCriteria(
+                                    BackoffPolicy.LINEAR,
+                                    OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
+                                    TimeUnit.MILLISECONDS
+                            )
+                            .setConstraints(uploadImageConstraint)
+                            .setInputData(uploadImageData)
+                            .build();
+
+            WorkManager.getInstance(this).enqueue(uploadImageWorkRequest);
+
+            _progressDialog.cancel();
+
+            finish();
 
         } catch (Exception e) {
             _progressDialog.cancel();

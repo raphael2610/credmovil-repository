@@ -10,11 +10,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.General.AdaptadorPersona;
 import pe.com.cmacica.flujocredito.Repositorio.Mapeo.ContratoDbCmacIca;
@@ -22,7 +24,7 @@ import pe.com.cmacica.flujocredito.Repositorio.Mapeo.DbCmacIcaHelper;
 import pe.com.cmacica.flujocredito.Utilitarios.DecoracionLineaDivisoria;
 
 
-public class ActividadBusquedaPersona extends AppCompatActivity{
+public class ActividadBusquedaPersona extends AppCompatActivity {
 
     private final static String TAG= ActividadBusquedaPersona.class.getName().toString();
     private DbCmacIcaHelper manejadorDB;

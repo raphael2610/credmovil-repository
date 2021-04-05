@@ -1,11 +1,14 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.GeoReferenciacion;
 
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 import pe.com.cmacica.flujocredito.Model.GeoReferenciacion.InstruccionModel;
 import pe.com.cmacica.flujocredito.R;

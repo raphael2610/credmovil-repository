@@ -1,7 +1,8 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.carteraanalista;
 
-import android.support.v7.util.DiffUtil;
 import android.util.Log;
+
+import androidx.recyclerview.widget.DiffUtil;
 
 import java.util.List;
 

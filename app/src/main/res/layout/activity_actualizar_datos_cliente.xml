@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
     <include
         layout="@layout/toolbar"></include>
 
-    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="0dp"
@@ -23,7 +23,7 @@
         tools:context="pe.com.cmacica.flujocredito.ViewModel.AgendaComercial.ActualizarDatosClienteActivity">
 
 
-        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -31,137 +31,137 @@
             tools:context="pe.com.cmacica.flujocredito.ViewModel.AgendaComercial.ActualizarDatosClienteActivity">
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutPhoneOne"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextPhoneOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_telefono_uno"
                     android:inputType="phone"
-                    android:maxLength="9"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="9"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutPhoneTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutPhoneOne">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextPhoneTwo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_telefono_dos"
                     android:inputType="phone"
-                    android:maxLength="9"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="9"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutPhoneThree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutPhoneTwo">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextPhoneThree"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_telefono_tres"
                     android:inputType="phone"
-                    android:maxLength="9"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="9"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutPhoneThree">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_correo"
                     android:inputType="textEmailAddress"
-                    android:maxLength="90"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="90"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutEmail">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_direccion"
-                    android:maxLength="150"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="150"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutBusinessAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutAddress">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextBusinessAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_direccion_negocio"
-                    android:maxLength="150"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="150"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutHousingReference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutBusinessAddress">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextHousingReference"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_refencia_vivienda"
                     android:inputType="textPostalAddress"
-                    android:maxLength="150"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="150"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textinputlayoutBusinessReference"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/textinputlayoutHousingReference">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/textinputedittextBusinessReference"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/actualizar_datos_cliente_referencia_negocio"
                     android:inputType="textPostalAddress"
                     android:imeOptions="actionDone"
-                    android:maxLength="150"></android.support.design.widget.TextInputEditText>
+                    android:maxLength="150"></com.google.android.material.textfield.TextInputEditText>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/buttonUpdateData"
@@ -175,12 +175,12 @@
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"></Button>
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

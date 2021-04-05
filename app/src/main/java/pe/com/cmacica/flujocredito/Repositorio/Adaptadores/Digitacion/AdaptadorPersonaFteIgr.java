@@ -1,13 +1,14 @@
 package pe.com.cmacica.flujocredito.Repositorio.Adaptadores.Digitacion;
 
 import android.database.Cursor;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import pe.com.cmacica.flujocredito.Base.ItemClickListener;
 import pe.com.cmacica.flujocredito.R;
