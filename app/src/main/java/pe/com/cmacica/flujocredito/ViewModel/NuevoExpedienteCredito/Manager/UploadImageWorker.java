@@ -32,7 +32,7 @@ import pe.com.cmacica.flujocredito.Utilitarios.NotificationUtil;
 
 public class UploadImageWorker extends Worker {
 
-    private static final String TAG = "UploadImageWorker";
+    public static final String TAG = "UploadImageWorker";
 
     private Context context;
 

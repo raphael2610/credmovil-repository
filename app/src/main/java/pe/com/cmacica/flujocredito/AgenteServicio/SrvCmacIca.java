@@ -9,15 +9,16 @@ public class SrvCmacIca {
     /*   private static final String PUERTO_HOST = ":8080";
         private static final String HOST_WEBAPI = "http://www.cmacica.com.pe"+ PUERTO_HOST + "/CrediMovil_Des/api/";
     */
+
  // SERVIDOR PRODUCCIÓN
-//	private static final String PUERTO_HOST = ":8080";
-//    private static final String HOST_WEBAPI = "http://www.cmacica.com.pe"+ PUERTO_HOST + "/ServicioCrediMovil/api/";
-	//10.255.255.246
+	//private static final String PUERTO_HOST = ":8080";
+  //private static final String HOST_WEBAPI = "http://www.cmacica.com.pe"+ PUERTO_HOST + "/ServicioCrediMovil/api/";
+  //10.255.255.246
 
  //SERVIDOR DESARROLLO
 	 private static final String PUERTO_HOST = "";
 //    private static final String HOST_WEBAPI = "http://172.20.10.97"+ PUERTO_HOST + "/Servicios/CrediMovil/api/";
-   private static final String HOST_WEBAPI = "http://172.20.10.97"+ PUERTO_HOST + "/optimusrest/api/";
+  private static final String HOST_WEBAPI = "http://172.20.10.97"+ PUERTO_HOST + "/optimusrest/api/";
 
  //SERVIDOR QA
 	//private static final String PUERTO_HOST = "";

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.work.BackoffPolicy;
 import androidx.work.Constraints;
 import androidx.work.Data;
+import androidx.work.ExistingWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
@@ -274,7 +275,7 @@ public class AddExpedienteActivity extends AppCompatActivity {
                         .putString(Constantes.PREF_IMAGE_SERVER, imageString)
                         .commit();
 
-            WorkRequest uploadImageWorkRequest =
+            OneTimeWorkRequest uploadImageWorkRequest =
                     new OneTimeWorkRequest.Builder(UploadImageWorker.class)
                             .setBackoffCriteria(
                                     BackoffPolicy.LINEAR,
@@ -285,7 +286,11 @@ public class AddExpedienteActivity extends AppCompatActivity {
                             .setInputData(uploadImageData)
                             .build();
 
-            WorkManager.getInstance(this).enqueue(uploadImageWorkRequest);
+            WorkManager.getInstance(this).enqueueUniqueWork(
+                    UploadImageWorker.TAG,
+                    ExistingWorkPolicy.KEEP,
+                    uploadImageWorkRequest
+            );
 
             _progressDialog.cancel();
 

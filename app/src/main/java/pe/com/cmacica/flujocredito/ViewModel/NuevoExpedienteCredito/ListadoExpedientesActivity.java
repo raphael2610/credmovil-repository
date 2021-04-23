@@ -4,12 +4,17 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -34,6 +39,7 @@ import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.TipoExpediente;
 import pe.com.cmacica.flujocredito.R;
 import pe.com.cmacica.flujocredito.Repositorio.Adaptadores.NuevoExpedienteCredito.ExpedienteAdapter;
 import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
+import pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito.Manager.UploadImageWorker;
 
 public class ListadoExpedientesActivity extends AppCompatActivity
                                 implements ExpedienteAdapter.ExpedienteAdapterListener {
@@ -65,6 +71,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
         _floatingactionbuttonAddExpediente = (FloatingActionButton) findViewById(R.id.floatingactionbuttonAddExpediente);
 
         setupView();
+        updateInterface();
 
     }
 
@@ -72,6 +79,24 @@ public class ListadoExpedientesActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         searchServerFiles();
+    }
+
+    private void updateInterface(){
+
+        WorkManager.getInstance(getApplicationContext())
+                .getWorkInfosForUniqueWorkLiveData(UploadImageWorker.TAG)
+                .observe(this, new Observer<List<WorkInfo>>() {
+                    @Override
+                    public void onChanged(List<WorkInfo> workInfos) {
+                        for (WorkInfo wi : workInfos) {
+                            if (wi.getState() == WorkInfo.State.SUCCEEDED) {
+                                Log.d(TAG, "onChanged: ");
+                                searchServerFiles();
+                            }
+                        }
+                    }
+                });
+
     }
 
     // endregion
