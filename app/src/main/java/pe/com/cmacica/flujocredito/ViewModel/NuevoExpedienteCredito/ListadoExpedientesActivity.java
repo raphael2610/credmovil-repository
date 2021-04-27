@@ -91,6 +91,7 @@ public class ListadoExpedientesActivity extends AppCompatActivity
                         for (WorkInfo wi : workInfos) {
                             if (wi.getState() == WorkInfo.State.SUCCEEDED) {
                                 Log.d(TAG, "onChanged: ");
+                                Toast.makeText(ListadoExpedientesActivity.this, "Se ha guardado exitosamente el expediente", Toast.LENGTH_SHORT).show();
                                 searchServerFiles();
                             }
                         }

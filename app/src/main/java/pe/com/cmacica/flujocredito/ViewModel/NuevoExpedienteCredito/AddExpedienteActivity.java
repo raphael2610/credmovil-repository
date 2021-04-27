@@ -44,6 +44,7 @@ import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Cliente;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.Credito;
 import pe.com.cmacica.flujocredito.Model.ExpedienteCredito.TipoExpediente;
 import pe.com.cmacica.flujocredito.R;
+import pe.com.cmacica.flujocredito.Utilitarios.AppUtil;
 import pe.com.cmacica.flujocredito.Utilitarios.Constantes;
 import pe.com.cmacica.flujocredito.Utilitarios.UPreferencias;
 import pe.com.cmacica.flujocredito.ViewModel.NuevoExpedienteCredito.Manager.UploadImageWorker;
@@ -67,6 +68,8 @@ public class AddExpedienteActivity extends AppCompatActivity {
     private Cliente _client;
     private int _configuration = 0;
     private String _user = "";
+
+    private Bitmap bitmapImage;
 
 
 
@@ -128,6 +131,7 @@ public class AddExpedienteActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+            bitmapImage = imageBitmap;
             _imageExpediente.setImageBitmap(imageBitmap);
         }
     }
@@ -222,11 +226,12 @@ public class AddExpedienteActivity extends AppCompatActivity {
             String codigoCuenta = _credit.getNumberCredit();
 
             // convert bitmap to string
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            Bitmap bitmap = ( (BitmapDrawable) (_imageExpediente.getDrawable()) ).getBitmap();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            byte[] imageBytes = baos.toByteArray();
-            String imageString = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            Bitmap bitmap = ( (BitmapDrawable) (_imageExpediente.getDrawable()) ).getBitmap();
+//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//            byte[] imageBytes = baos.toByteArray();
+//            String imageString = Base64.encaleodeToString(imageBytes, Base64.DEFAULT);
+            String imageString = AppUtil.compressImage(bitmapImage);
 
             String user = UPreferencias.ObtenerUserLogeo(this);
             user = "ERMN";
